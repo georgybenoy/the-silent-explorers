@@ -118,8 +118,11 @@ export const TimelineBar: React.FC = () => {
 
   const handleMilestoneClick = (milestone: TimelineMilestone) => {
     setActiveDestination(milestone.destination);
-    selectArtifact(milestone.artifactId);
-    scrollToChapter(milestone.chapterTarget);
+    if (milestone.chapterTarget === 4) {
+      selectArtifact(milestone.artifactId);
+    } else {
+      scrollToChapter(milestone.chapterTarget);
+    }
   };
 
   return (

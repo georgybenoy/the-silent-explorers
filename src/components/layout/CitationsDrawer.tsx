@@ -50,7 +50,7 @@ export const CitationsDrawer: React.FC = () => {
         aria-hidden="true"
       />
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
         <div className="w-screen max-w-2xl bg-space-void border-l border-white/10 shadow-2xl flex flex-col justify-between">
           {/* Drawer Header */}
           <div className="p-6 border-b border-white/10 bg-space-black/90">
@@ -77,10 +77,16 @@ export const CitationsDrawer: React.FC = () => {
             </p>
 
             {/* Filter Pills */}
-            <div className="flex items-center space-x-1.5 mt-4 overflow-x-auto pb-1 text-xs font-mono">
+            <div
+              className="flex items-center space-x-1.5 mt-4 overflow-x-auto pb-1 text-xs font-mono"
+              role="tablist"
+              aria-label="Filter citations by repository"
+            >
               {repositories.map((repo) => (
                 <button
                   key={repo}
+                  role="tab"
+                  aria-selected={filterType === repo}
                   onClick={() => setFilterType(repo)}
                   className={`px-2.5 py-1 rounded whitespace-nowrap transition-colors ${
                     filterType === repo

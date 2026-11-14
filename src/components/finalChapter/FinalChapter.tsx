@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigation } from '../../context/NavigationContext';
 import artifactsData from '../../data/artifacts.json';
 import { TranscriptCard } from '../museum/TranscriptCard';
 import type { Artifact } from '../../types/artifact';
+import { matchesDestination, normalizeDestination } from '../../utils/destination';
 
 export const FinalChapter: React.FC = () => {
-  const { selectArtifact, scrollToChapter, isReducedMotion } = useNavigation();
+  const { selectArtifact, scrollToChapter, isReducedMotion, activeDestination, setActiveDestination } = useNavigation();
   const artifacts: Artifact[] = artifactsData as Artifact[];
-  const [activeTab, setActiveTab] = useState<'all' | 'Moon' | 'Mars' | 'Beyond Mars'>('all');
 
-  // Filter for Section 2
-  const displayedArtifacts = activeTab === 'all' 
+  // Filter for Section 2 using shared destination state
+  const displayedArtifacts = normalizeDestination(activeDestination) === 'all'
     ? artifacts 
-    : artifacts.filter(a => a.destination === activeTab);
+    : artifacts.filter(a => matchesDestination(a.destination, activeDestination));
 
   // Helper for destination badges
   const getDestinationBadge = (destination: string) => {
@@ -195,27 +195,46 @@ export const FinalChapter: React.FC = () => {
           </div>
 
           {/* Quick Filter Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-black/40 border border-white/10 font-mono text-xs">
-            {(['all', 'Moon', 'Mars', 'Beyond Mars'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-3 py-1.5 rounded transition-colors ${
-                  activeTab === tab
-                    ? 'bg-white/15 text-stellar-white font-bold'
-                    : 'text-zinc-400 hover:text-stellar-white hover:bg-white/5'
-                }`}
-                aria-label={`Filter ending records by ${tab}`}
-              >
-                {tab === 'all' ? 'ALL 8 EXPLORERS' : tab.toUpperCase()}
-              </button>
-            ))}
+          <div 
+            role="tablist"
+            aria-label="Filter mission conclusion records by destination"
+            className="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-black/40 border border-white/10 font-mono text-xs"
+          >
+            {(['All', 'Moon', 'Mars', 'Beyond Mars'] as const).map((tab) => {
+              const isSelected = normalizeDestination(activeDestination) === normalizeDestination(tab);
+              return (
+                <button
+                  key={tab}
+                  role="tab"
+                  aria-selected={isSelected}
+                  onClick={() => setActiveDestination(tab)}
+                  className={`px-3 py-1.5 rounded transition-colors ${
+                    isSelected
+                      ? 'bg-stellar-gold text-space-black font-bold shadow-[0_0_10px_rgba(232,154,60,0.3)]'
+                      : 'text-zinc-400 hover:text-stellar-white hover:bg-white/5'
+                  }`}
+                  aria-label={`Filter ending records by ${tab}`}
+                >
+                  {tab === 'All' ? 'ALL 8 EXPLORERS' : tab.toUpperCase()}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Explorer Ending Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {displayedArtifacts.map((artifact) => {
+        {displayedArtifacts.length === 0 ? (
+          <div className="p-12 text-center rounded-xl border border-white/10 bg-black/40 font-mono space-y-2">
+            <p className="text-stellar-gold text-sm font-semibold uppercase tracking-wider">
+              No Ending Profiles Found For This Theater
+            </p>
+            <p className="text-zinc-400 text-xs">
+              Select another destination to inspect historical mission conclusions.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {displayedArtifacts.map((artifact) => {
             const tag = getEndingTag(artifact.artifactId);
             const destinationBadge = getDestinationBadge(artifact.destination);
             const lastTransmission = artifact.historicalTransmissions?.[0];
@@ -329,6 +348,7 @@ export const FinalChapter: React.FC = () => {
             );
           })}
         </div>
+        )}
       </div>
 
       {/* =========================================================================

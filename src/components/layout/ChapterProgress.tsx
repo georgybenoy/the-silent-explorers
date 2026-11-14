@@ -29,7 +29,7 @@ export const ChapterProgress: React.FC = () => {
             <button
               key={ch.id}
               onClick={() => scrollToChapter(ch.id)}
-              className={`group relative flex items-center justify-center p-1 rounded focus-visible:ring-1 focus-visible:ring-stellar-gold transition-all ${
+              className={`group relative flex items-center justify-center min-w-[28px] min-h-[32px] sm:min-w-[32px] sm:min-h-[36px] p-1.5 rounded focus-visible:ring-1 focus-visible:ring-stellar-gold transition-all ${
                 isActive ? 'scale-110' : 'hover:scale-105'
               }`}
               aria-label={`Navigate to Chapter ${ch.romanNumeral}: ${ch.title}`}

@@ -31,7 +31,7 @@ export function AttributionBadge({ attribution, className = '' }: AttributionBad
       {/* Expanded Tooltip / Stencil Card */}
       {isExpanded && (
         <div
-          className="absolute bottom-full left-0 mb-2 w-80 p-3.5 rounded bg-space-card/95 backdrop-blur-xl border border-white/15 shadow-2xl text-[11px] font-mono space-y-2 z-30 animate-fade-in"
+          className="absolute bottom-full left-0 mb-2 w-72 sm:w-80 max-w-[calc(100vw-2.5rem)] p-3.5 rounded bg-space-card/95 backdrop-blur-xl border border-white/15 shadow-2xl text-[11px] font-mono space-y-2 z-30 animate-fade-in"
           role="tooltip"
         >
           <div className="flex items-center justify-between border-b border-white/10 pb-1.5 text-stellar-gold font-bold">

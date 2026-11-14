@@ -18,7 +18,7 @@ export function ChapterOneSilence() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const scenesTrackRef = useRef<HTMLDivElement | null>(null);
   const [activeSceneIndex, setActiveSceneIndex] = useState<number>(1);
-  const { isReducedMotion, scrollToChapter, selectArtifact } = useNavigation();
+  const { isReducedMotion, scrollToChapter } = useNavigation();
 
   const totalScenes = chapterOneScenes.length;
   const currentScene: CinematicSceneData =
@@ -238,10 +238,7 @@ export function ChapterOneSilence() {
 
               <button
                 type="button"
-                onClick={() => {
-                  scrollToChapter(4);
-                  selectArtifact('apollo-17-lrv');
-                }}
+                onClick={() => scrollToChapter(4)}
                 className="px-5 py-3.5 rounded-lg bg-white/5 border border-white/15 text-stellar-white font-mono text-xs font-medium uppercase tracking-wider hover:bg-white/10 hover:border-stellar-gold/40 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-stellar-gold"
               >
                 <span>EXPLORE THE 8 EXPLORERS</span>
