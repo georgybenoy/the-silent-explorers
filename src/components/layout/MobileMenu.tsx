@@ -11,8 +11,8 @@ export const MobileMenu: React.FC = () => {
     activeChapterId,
     scrollToChapter,
     setIsCitationsOpen,
-    isAudioMuted,
-    setIsAudioMuted,
+    audioState,
+    toggleAudio,
     isReducedMotion,
   } = useNavigation();
 
@@ -38,6 +38,34 @@ export const MobileMenu: React.FC = () => {
   }, [isMobileMenuOpen, setIsMobileMenuOpen]);
 
   if (!isMobileMenuOpen) return null;
+
+  const getAudioStatusText = () => {
+    switch (audioState) {
+      case 'on':
+        return 'ACTIVE';
+      case 'starting':
+        return 'STARTING...';
+      case 'unavailable':
+        return 'UNAVAILABLE';
+      case 'off':
+      default:
+        return 'MUTED';
+    }
+  };
+
+  const getAudioStatusClass = () => {
+    switch (audioState) {
+      case 'on':
+        return 'text-status-passive font-bold';
+      case 'starting':
+        return 'text-stellar-amber font-bold animate-pulse';
+      case 'unavailable':
+        return 'text-zinc-600';
+      case 'off':
+      default:
+        return 'text-zinc-400';
+    }
+  };
 
   return (
     <div
@@ -108,12 +136,15 @@ export const MobileMenu: React.FC = () => {
         <div className="pt-6 border-t border-white/10 space-y-3 font-mono text-xs">
           {/* Audio Toggle */}
           <button
-            onClick={() => setIsAudioMuted(!isAudioMuted)}
-            className="w-full min-h-[44px] flex items-center justify-between p-3 rounded border border-white/10 text-stellar-white hover:bg-white/5"
+            onClick={toggleAudio}
+            disabled={audioState === 'unavailable'}
+            className="w-full min-h-[44px] flex items-center justify-between p-3 rounded border border-white/10 text-stellar-white hover:bg-white/5 focus-visible:ring-1 focus-visible:ring-stellar-gold"
+            aria-label={audioState === 'on' ? "Mute ambient soundscape" : "Play ambient soundscape"}
+            aria-pressed={audioState === 'on'}
           >
             <span>AMBIENT SOUNDSCAPE:</span>
-            <span className={isAudioMuted ? 'text-zinc-400' : 'text-status-passive font-bold'}>
-              {isAudioMuted ? 'MUTED' : 'ACTIVE'}
+            <span className={getAudioStatusClass()}>
+              {getAudioStatusText()}
             </span>
           </button>
 
@@ -123,7 +154,7 @@ export const MobileMenu: React.FC = () => {
               setIsMobileMenuOpen(false);
               setIsCitationsOpen(true);
             }}
-            className="w-full min-h-[44px] flex items-center justify-between p-3 rounded border border-stellar-gold/30 text-stellar-gold hover:bg-stellar-gold/10 font-bold"
+            className="w-full min-h-[44px] flex items-center justify-between p-3 rounded border border-stellar-gold/30 text-stellar-gold hover:bg-stellar-gold/10 font-bold focus-visible:ring-1 focus-visible:ring-stellar-gold"
           >
             <span>NASA SOURCES & CITATIONS</span>
             <span>↗</span>

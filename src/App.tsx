@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { NavigationProvider, useNavigation } from './context/NavigationContext';
 import { Navbar } from './components/layout/Navbar';
 import { TimelineBar } from './components/layout/TimelineBar';
@@ -12,45 +12,138 @@ import { TheLegacy } from './components/legacy/TheLegacy';
 import chaptersData from './data/chapters.json';
 import type { Chapter } from './types/chapter';
 
+const CHAPTER_IDS = [1, 2, 3, 4, 5, 6, 7];
+
 function ShellContent() {
   const {
     activeChapterId,
     setActiveChapterId,
     activeDestination,
     isReducedMotion,
+    isNavigatingChapterRef,
   } = useNavigation();
 
   const chapters: Chapter[] = chaptersData as Chapter[];
+  const currentActiveChapterIdRef = useRef<number>(activeChapterId);
 
-  // Synchronize active chapter with viewport scroll
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const idMatch = entry.target.id.match(/^chapter-(\d+)$/);
-            if (idMatch) {
-              const chapterNum = parseInt(idMatch[1], 10);
-              setActiveChapterId(chapterNum);
-            }
-          }
-        });
-      },
-      {
-        rootMargin: '-20% 0px -40% 0px',
-        threshold: 0.1,
-      }
-    );
+    currentActiveChapterIdRef.current = activeChapterId;
+  }, [activeChapterId]);
 
-    const chapterElements = document.querySelectorAll('[id^="chapter-"]');
-    chapterElements.forEach((el) => observer.observe(el));
+  // Robust active-section detection system across all seven chapters
+  useEffect(() => {
+    let rafId: number | null = null;
+
+    const detectActiveChapter = () => {
+      // If user triggered an intentional navigation click and smooth scroll is animating, skip detection
+      if (isNavigatingChapterRef.current) {
+        return;
+      }
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // 1. Top of page boundary: Chapter 1 is active
+      if (scrollY <= 80) {
+        if (currentActiveChapterIdRef.current !== 1) {
+          setActiveChapterId(1);
+        }
+        return;
+      }
+
+      // 2. Bottom of page boundary: Chapter 7 is active
+      if (scrollY + windowHeight >= documentHeight - 100) {
+        if (currentActiveChapterIdRef.current !== 7) {
+          setActiveChapterId(7);
+        }
+        return;
+      }
+
+      // 3. Primary Reading Line (probe zone): 35% of viewport height, accounting for sticky navbar
+      const readingLine = Math.min(Math.max(windowHeight * 0.35, 120), windowHeight - 140);
+
+      const viewportTop = 70; // Below sticky header
+      const viewportBottom = windowHeight - 90; // Above fixed timeline
+
+      let candidateChapter = 1;
+      let maxVisibleHeight = -1;
+
+      for (const id of CHAPTER_IDS) {
+        const el = document.getElementById(`chapter-${id}`);
+        if (!el) continue;
+
+        // Chapter 1 may be wrapped in a GSAP .pin-spacer during pinned scroll
+        let container: HTMLElement = el;
+        if (id === 1 && el.parentElement?.classList.contains('pin-spacer')) {
+          container = el.parentElement;
+        }
+
+        const rect = container.getBoundingClientRect();
+
+        // Direct hit: the reading probe line is inside this chapter
+        if (rect.top <= readingLine && rect.bottom > readingLine) {
+          candidateChapter = id;
+          maxVisibleHeight = Infinity;
+          break;
+        }
+
+        // Fallback: Compute visible overlap inside the active reading window
+        const visibleTop = Math.max(rect.top, viewportTop);
+        const visibleBottom = Math.min(rect.bottom, viewportBottom);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+
+        if (visibleHeight > maxVisibleHeight) {
+          maxVisibleHeight = visibleHeight;
+          candidateChapter = id;
+        }
+      }
+
+      if (candidateChapter >= 1 && candidateChapter <= 7 && candidateChapter !== currentActiveChapterIdRef.current) {
+        setActiveChapterId(candidateChapter);
+      }
+    };
+
+    const handleScroll = () => {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        detectActiveChapter();
+        rafId = null;
+      });
+    };
+
+    const handleScrollEnd = () => {
+      isNavigatingChapterRef.current = false;
+      detectActiveChapter();
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    window.addEventListener('scrollend', handleScrollEnd, { passive: true });
+
+    // Check for initial URL anchor or run initial detection
+    const initialHash = window.location.hash;
+    if (initialHash) {
+      const match = initialHash.match(/^#chapter-(\d+)$/);
+      if (match) {
+        const hashId = parseInt(match[1], 10);
+        if (hashId >= 1 && hashId <= 7) {
+          setActiveChapterId(hashId);
+        }
+      }
+    } else {
+      detectActiveChapter();
+    }
 
     return () => {
-      chapterElements.forEach((el) => observer.unobserve(el));
-      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('scrollend', handleScrollEnd);
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
     };
-  }, [setActiveChapterId]);
-
+  }, [setActiveChapterId, isNavigatingChapterRef]);
 
   return (
     <div className="min-h-screen bg-space-black text-stellar-white font-sans selection:bg-stellar-gold/20 selection:text-stellar-gold pb-36">
@@ -82,7 +175,6 @@ function ShellContent() {
             )}
           </div>
         </div>
-
 
         {/* Chapter 2: Beyond Earth */}
         <section

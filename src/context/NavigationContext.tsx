@@ -1,6 +1,9 @@
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
-import type { Destination } from '../types/artifact';
+import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
+import type { Destination, Artifact } from '../types/artifact';
 import { useReducedMotion } from '../hooks/useReducedMotion';
+import { ambientAudio, type AudioState } from '../services/ambientAudio';
+import { matchesDestination } from '../utils/destination';
+import artifactsData from '../data/artifacts.json';
 
 interface NavigationContextType {
   activeChapterId: number;
@@ -13,28 +16,81 @@ interface NavigationContextType {
   setIsCitationsOpen: (open: boolean) => void;
   isAudioMuted: boolean;
   setIsAudioMuted: (muted: boolean) => void;
+  audioState: AudioState;
+  toggleAudio: () => Promise<void>;
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpen: (open: boolean) => void;
   isReducedMotion: boolean;
   scrollToChapter: (chapterId: number) => void;
   selectArtifact: (artifactId: string | null) => void;
+  isNavigatingChapterRef: React.MutableRefObject<boolean>;
 }
 
 const NavigationContext = createContext<NavigationContextType | undefined>(undefined);
 
 export function NavigationProvider({ children }: { children: React.ReactNode }) {
   const [activeChapterId, setActiveChapterId] = useState<number>(1);
-  const [activeDestination, setActiveDestination] = useState<Destination | 'All'>('All');
+  const [activeDestination, setActiveDestinationState] = useState<Destination | 'All'>('All');
   const [selectedArtifactId, setSelectedArtifactId] = useState<string | null>(null);
   const [isCitationsOpen, setIsCitationsOpen] = useState<boolean>(false);
-  const [isAudioMuted, setIsAudioMuted] = useState<boolean>(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
+  const [audioState, setAudioState] = useState<AudioState>(ambientAudio.getState());
+  
   const isReducedMotion = useReducedMotion();
+  const isNavigatingChapterRef = useRef<boolean>(false);
+  const navLockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Smooth or direct scroll to chapter container
+  // Subscribe to ambient audio state changes
+  useEffect(() => {
+    const unsubscribe = ambientAudio.subscribe((state) => {
+      setAudioState(state);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const toggleAudio = useCallback(async () => {
+    await ambientAudio.toggle();
+  }, []);
+
+  const setIsAudioMuted = useCallback((muted: boolean) => {
+    if (muted) {
+      ambientAudio.stop();
+    } else {
+      ambientAudio.play();
+    }
+  }, []);
+
+  const isAudioMuted = audioState !== 'on';
+
+  // Set active destination with type safety, normalization, and stale modal dismissal
+  const setActiveDestination = useCallback((dest: Destination | 'All') => {
+    setActiveDestinationState(dest);
+
+    // If an artifact detail modal is open for an artifact not in the new destination, close it
+    if (dest !== 'All' && selectedArtifactId) {
+      const all = artifactsData as Artifact[];
+      const activeArt = all.find((a) => a.artifactId === selectedArtifactId);
+      if (activeArt && !matchesDestination(activeArt.destination, dest)) {
+        setSelectedArtifactId(null);
+      }
+    }
+  }, [selectedArtifactId]);
+
+  // Smooth or direct scroll to chapter container with programmatic navigation lock
   const scrollToChapter = useCallback((chapterId: number) => {
     setActiveChapterId(chapterId);
     setIsMobileMenuOpen(false);
+
+    // Lock programmatic navigation so scroll listeners don't overwrite the intended target
+    isNavigatingChapterRef.current = true;
+    if (navLockTimeoutRef.current) {
+      clearTimeout(navLockTimeoutRef.current);
+    }
+    navLockTimeoutRef.current = setTimeout(() => {
+      isNavigatingChapterRef.current = false;
+    }, 1000);
 
     const targetElement = document.getElementById(`chapter-${chapterId}`);
     if (targetElement) {
@@ -49,7 +105,6 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
   const selectArtifact = useCallback((artifactId: string | null) => {
     setSelectedArtifactId(artifactId);
     if (artifactId) {
-      // Find element or open detail modal
       const artifactElement = document.getElementById(`artifact-${artifactId}`);
       if (artifactElement) {
         artifactElement.scrollIntoView({
@@ -94,11 +149,14 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
     setIsCitationsOpen,
     isAudioMuted,
     setIsAudioMuted,
+    audioState,
+    toggleAudio,
     isMobileMenuOpen,
     setIsMobileMenuOpen,
     isReducedMotion,
     scrollToChapter,
     selectArtifact,
+    isNavigatingChapterRef,
   };
 
   return (

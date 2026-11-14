@@ -7,13 +7,55 @@ import citationsData from '../../data/citations.json';
 export const Navbar: React.FC = () => {
   const {
     scrollToChapter,
-    isAudioMuted,
-    setIsAudioMuted,
+    audioState,
+    toggleAudio,
     isCitationsOpen,
     setIsCitationsOpen,
     isMobileMenuOpen,
     setIsMobileMenuOpen,
   } = useNavigation();
+
+  const getAudioLabel = () => {
+    switch (audioState) {
+      case 'on':
+        return 'Mute ambient deep-space soundscape';
+      case 'starting':
+        return 'Ambient soundscape starting';
+      case 'unavailable':
+        return 'Ambient audio unavailable';
+      case 'off':
+      default:
+        return 'Play ambient deep-space soundscape';
+    }
+  };
+
+  const getAudioIndicator = () => {
+    switch (audioState) {
+      case 'on':
+        return <span className="w-2 h-2 rounded-full bg-status-passive shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse" />;
+      case 'starting':
+        return <span className="w-2 h-2 rounded-full bg-stellar-amber animate-ping" />;
+      case 'unavailable':
+        return <span className="w-2 h-2 rounded-full bg-zinc-600" />;
+      case 'off':
+      default:
+        return <span className="w-2 h-2 rounded-full bg-zinc-600" />;
+    }
+  };
+
+  const getAudioText = () => {
+    switch (audioState) {
+      case 'on':
+        return 'AUDIO: ON';
+      case 'starting':
+        return 'AUDIO: STARTING...';
+      case 'unavailable':
+        return 'AUDIO: UNAVAILABLE';
+      case 'off':
+      default:
+        return 'AUDIO: OFF';
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-space-black/90 border-b border-white/10 px-6 py-3.5 transition-all">
@@ -69,14 +111,22 @@ export const Navbar: React.FC = () => {
             </span>
           </button>
 
-          {/* Global Ambient Audio Toggle (P1 Foundation, Muted by default) */}
+          {/* Global Ambient Audio Toggle */}
           <button
-            onClick={() => setIsAudioMuted(!isAudioMuted)}
-            className="hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded border border-white/10 hover:border-white/30 text-stellar-white hover:bg-white/5 transition-colors focus-visible:ring-1 focus-visible:ring-stellar-gold"
-            aria-label={isAudioMuted ? "Unmute ambient space soundscape" : "Mute ambient space soundscape"}
+            onClick={toggleAudio}
+            disabled={audioState === 'unavailable'}
+            className={`hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded border transition-colors focus-visible:ring-1 focus-visible:ring-stellar-gold ${
+              audioState === 'on'
+                ? 'border-emerald-500/40 bg-emerald-950/20 text-stellar-white hover:bg-emerald-950/40'
+                : audioState === 'unavailable'
+                ? 'border-white/5 text-zinc-600 cursor-not-allowed'
+                : 'border-white/10 hover:border-white/30 text-stellar-white hover:bg-white/5'
+            }`}
+            aria-label={getAudioLabel()}
+            aria-pressed={audioState === 'on'}
           >
-            <span className={`w-2 h-2 rounded-full ${isAudioMuted ? 'bg-zinc-600' : 'bg-status-passive'}`} />
-            <span>AUDIO: {isAudioMuted ? 'MUTED' : 'ON'}</span>
+            {getAudioIndicator()}
+            <span>{getAudioText()}</span>
           </button>
 
           {/* Mobile Menu Hamburger Button */}

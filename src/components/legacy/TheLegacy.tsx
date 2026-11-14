@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigation } from '../../context/NavigationContext';
+import { matchesDestination, normalizeDestination } from '../../utils/destination';
 
 export const TheLegacy: React.FC = () => {
-  const { scrollToChapter, setIsCitationsOpen, isReducedMotion } = useNavigation();
-  const [activeTab, setActiveTab] = useState<'All' | 'Moon' | 'Mars' | 'Beyond Mars'>('All');
+  const { scrollToChapter, setIsCitationsOpen, isReducedMotion, activeDestination, setActiveDestination } = useNavigation();
   const [activeStatusCategory, setActiveStatusCategory] = useState<'all' | 'active' | 'development' | 'planned' | 'proposed'>('all');
 
   return (
@@ -121,28 +121,37 @@ export const TheLegacy: React.FC = () => {
           </div>
 
           {/* Destination Selector Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-black/40 border border-white/10 font-mono text-xs">
-            {(['All', 'Moon', 'Mars', 'Beyond Mars'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`px-3 py-1.5 rounded transition-colors ${
-                  activeTab === tab
-                    ? 'bg-white/15 text-stellar-white font-bold'
-                    : 'text-zinc-400 hover:text-stellar-white hover:bg-white/5'
-                }`}
-                aria-label={`Filter lineage by ${tab}`}
-              >
-                {tab === 'All' ? 'ALL TRACKS' : tab.toUpperCase()}
-              </button>
-            ))}
+          <div 
+            role="tablist"
+            aria-label="Filter exploration lineage tracks by destination"
+            className="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-black/40 border border-white/10 font-mono text-xs"
+          >
+            {(['All', 'Moon', 'Mars', 'Beyond Mars'] as const).map((tab) => {
+              const isSelected = normalizeDestination(activeDestination) === normalizeDestination(tab);
+              return (
+                <button
+                  key={tab}
+                  role="tab"
+                  aria-selected={isSelected}
+                  onClick={() => setActiveDestination(tab)}
+                  className={`px-3 py-1.5 rounded transition-colors ${
+                    isSelected
+                      ? 'bg-stellar-gold text-space-black font-bold shadow-[0_0_10px_rgba(232,154,60,0.3)]'
+                      : 'text-zinc-400 hover:text-stellar-white hover:bg-white/5'
+                  }`}
+                  aria-label={`Filter lineage by ${tab}`}
+                >
+                  {tab === 'All' ? 'ALL TRACKS' : tab.toUpperCase()}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* Lineage Tracks */}
         <div className="space-y-8">
           {/* Track 1: The Moon */}
-          {(activeTab === 'All' || activeTab === 'Moon') && (
+          {(normalizeDestination(activeDestination) === 'all' || matchesDestination('Moon', activeDestination)) && (
             <div className="rounded-xl border border-stellar-cyan/20 bg-space-card/80 p-6 sm:p-8 space-y-6">
               <div className="flex items-center space-x-3">
                 <span className="px-2.5 py-1 rounded bg-stellar-cyan/10 border border-stellar-cyan/30 text-stellar-cyan text-xs font-mono font-bold uppercase tracking-wider">
@@ -180,7 +189,7 @@ export const TheLegacy: React.FC = () => {
           )}
 
           {/* Track 2: Mars */}
-          {(activeTab === 'All' || activeTab === 'Mars') && (
+          {(normalizeDestination(activeDestination) === 'all' || matchesDestination('Mars', activeDestination)) && (
             <div className="rounded-xl border border-stellar-amber/20 bg-space-card/80 p-6 sm:p-8 space-y-6">
               <div className="flex items-center space-x-3">
                 <span className="px-2.5 py-1 rounded bg-stellar-amber/10 border border-stellar-amber/30 text-stellar-amber text-xs font-mono font-bold uppercase tracking-wider">
@@ -218,7 +227,7 @@ export const TheLegacy: React.FC = () => {
           )}
 
           {/* Track 3: Beyond Mars */}
-          {(activeTab === 'All' || activeTab === 'Beyond Mars') && (
+          {(normalizeDestination(activeDestination) === 'all' || matchesDestination('Beyond Mars', activeDestination)) && (
             <div className="rounded-xl border border-purple-500/20 bg-space-card/80 p-6 sm:p-8 space-y-6">
               <div className="flex items-center space-x-3">
                 <span className="px-2.5 py-1 rounded bg-purple-400/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-bold uppercase tracking-wider">

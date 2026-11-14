@@ -3,6 +3,7 @@ import { useNavigation } from '../../context/NavigationContext';
 import type { Destination } from '../../types/artifact';
 import artifactsData from '../../data/artifacts.json';
 import type { Artifact } from '../../types/artifact';
+import { DESTINATION_LIST, matchesDestination, normalizeDestination } from '../../utils/destination';
 
 interface DestinationFilterProps {
   className?: string;
@@ -16,11 +17,11 @@ export const DestinationFilter: React.FC<DestinationFilterProps> = ({
   const { activeDestination, setActiveDestination } = useNavigation();
   const artifacts: Artifact[] = artifactsData as Artifact[];
 
-  const destinations: (Destination | 'All')[] = ['All', 'Moon', 'Mars', 'Beyond Mars'];
+  const destinations = DESTINATION_LIST;
 
   const getCount = (dest: Destination | 'All') => {
     if (dest === 'All') return artifacts.length;
-    return artifacts.filter(a => a.destination === dest).length;
+    return artifacts.filter(a => matchesDestination(a.destination, dest)).length;
   };
 
   return (
@@ -30,7 +31,7 @@ export const DestinationFilter: React.FC<DestinationFilterProps> = ({
       className={`inline-flex items-center p-1 rounded-md bg-space-card/80 border border-white/10 text-xs font-mono backdrop-blur-sm ${className}`}
     >
       {destinations.map((dest) => {
-        const isSelected = activeDestination === dest;
+        const isSelected = normalizeDestination(activeDestination) === normalizeDestination(dest);
         const count = getCount(dest);
 
         return (
@@ -45,7 +46,7 @@ export const DestinationFilter: React.FC<DestinationFilterProps> = ({
                 : 'text-stellar-gray hover:text-stellar-white hover:bg-white/5'
             }`}
           >
-            <span>{dest.toUpperCase()}</span>
+            <span>{dest === 'All' ? 'ALL' : dest.toUpperCase()}</span>
             {showCounts && (
               <span 
                 className={`text-[10px] px-1.5 py-0.2 rounded ${

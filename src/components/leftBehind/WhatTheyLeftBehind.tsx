@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigation } from '../../context/NavigationContext';
 import artifactsData from '../../data/artifacts.json';
 import type { Artifact } from '../../types/artifact';
+import { matchesDestination, normalizeDestination } from '../../utils/destination';
 
 export const WhatTheyLeftBehind: React.FC = () => {
-  const { selectArtifact, scrollToChapter, isReducedMotion } = useNavigation();
+  const { selectArtifact, scrollToChapter, isReducedMotion, activeDestination, setActiveDestination } = useNavigation();
   const artifacts: Artifact[] = artifactsData as Artifact[];
-  const [activeDestination, setActiveDestination] = useState<'All' | 'Moon' | 'Mars' | 'Beyond Mars'>('All');
 
   // Filter artifacts by destination for Section 2
-  const filteredArtifacts = activeDestination === 'All'
+  const filteredArtifacts = normalizeDestination(activeDestination) === 'all'
     ? artifacts
-    : artifacts.filter(a => a.destination === activeDestination);
+    : artifacts.filter(a => matchesDestination(a.destination, activeDestination));
 
   // Helper for destination badges
   const getDestinationBadge = (dest: string) => {
@@ -149,21 +149,30 @@ export const WhatTheyLeftBehind: React.FC = () => {
           </div>
 
           {/* Destination Selector Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-black/40 border border-white/10 font-mono text-xs">
-            {(['All', 'Moon', 'Mars', 'Beyond Mars'] as const).map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveDestination(tab)}
-                className={`px-3 py-1.5 rounded transition-colors ${
-                  activeDestination === tab
-                    ? 'bg-white/15 text-stellar-white font-bold'
-                    : 'text-zinc-400 hover:text-stellar-white hover:bg-white/5'
-                }`}
-                aria-label={`Filter artifacts by ${tab}`}
-              >
-                {tab === 'All' ? 'ALL OBJECTS' : tab.toUpperCase()}
-              </button>
-            ))}
+          <div 
+            role="tablist"
+            aria-label="Filter physical legacy records by destination"
+            className="flex flex-wrap items-center gap-1.5 p-1 rounded-lg bg-black/40 border border-white/10 font-mono text-xs"
+          >
+            {(['All', 'Moon', 'Mars', 'Beyond Mars'] as const).map((tab) => {
+              const isSelected = normalizeDestination(activeDestination) === normalizeDestination(tab);
+              return (
+                <button
+                  key={tab}
+                  role="tab"
+                  aria-selected={isSelected}
+                  onClick={() => setActiveDestination(tab)}
+                  className={`px-3 py-1.5 rounded transition-colors ${
+                    isSelected
+                      ? 'bg-stellar-gold text-space-black font-bold shadow-[0_0_10px_rgba(232,154,60,0.3)]'
+                      : 'text-zinc-400 hover:text-stellar-white hover:bg-white/5'
+                  }`}
+                  aria-label={`Filter artifacts by ${tab}`}
+                >
+                  {tab === 'All' ? 'ALL OBJECTS' : tab.toUpperCase()}
+                </button>
+              );
+            })}
           </div>
         </div>
 
