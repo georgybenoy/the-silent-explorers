@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import type { Artifact } from '../../types/artifact';
 import { TranscriptCard } from './TranscriptCard';
+import { Artifact3DStage } from '../3d/Artifact3DStage';
 
 interface ArtifactDetailModalProps {
   artifact: Artifact;
@@ -165,32 +166,9 @@ export function ArtifactDetailModal({
 
         {/* Scrollable Modal Content Body */}
         <div className="flex-1 min-h-0 min-w-0 overflow-y-auto overflow-x-hidden px-4 sm:px-8 md:px-10 py-6 sm:py-8 space-y-10 box-border">
-          {/* SECTION A: INTRODUCTION & CINEMATIC PLATE */}
+          {/* SECTION A: INTRODUCTION & CINEMATIC 3D STAGE */}
           <section className="space-y-6 min-w-0">
-            <div className="space-y-2 min-w-0">
-              <div className="relative aspect-[21/10] sm:aspect-[21/9] w-full rounded-xl overflow-hidden bg-black/90 border border-white/10 shadow-2xl">
-                <img
-                  src={artifact.media.fallbackImagePath}
-                  alt={artifact.name}
-                  className="w-full h-full object-cover filter brightness-[0.9] contrast-[1.1]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-space-card via-transparent to-black/30 pointer-events-none" />
-
-                {/* Photo Attribution Stencil */}
-                <div className="absolute bottom-3 left-4 right-4 flex flex-wrap items-center justify-between gap-2 z-10 text-[10px] font-mono text-zinc-300 bg-black/75 backdrop-blur-md p-2 rounded border border-white/10">
-                  <span className="truncate max-w-[400px]">CREDIT: {artifact.media.photoCredits}</span>
-                  <span className="text-stellar-gold uppercase">ARCHIVAL MISSION RECORD</span>
-                </div>
-              </div>
-
-              {/* Image Provenance Clarification Note */}
-              <div className="text-[11px] font-mono text-zinc-400 bg-black/40 border border-white/5 p-2 rounded flex flex-wrap items-center justify-between gap-2">
-                <span>
-                  <strong className="text-stellar-muted uppercase">IMAGE PROVENANCE:</strong> Genuine NASA mission photography / scientific product.
-                </span>
-                <span className="text-zinc-500 hidden sm:inline">CURRENT RESTING STATE DERIVED FROM TELEMETRY & SATELLITE IMAGING</span>
-              </div>
-            </div>
+            <Artifact3DStage artifact={artifact} />
 
             {/* Title, Badges & Intro Lead */}
             <div className="space-y-4 min-w-0">

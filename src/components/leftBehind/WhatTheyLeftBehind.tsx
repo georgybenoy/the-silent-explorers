@@ -3,6 +3,7 @@ import { useNavigation } from '../../context/NavigationContext';
 import artifactsData from '../../data/artifacts.json';
 import type { Artifact } from '../../types/artifact';
 import { matchesDestination, normalizeDestination } from '../../utils/destination';
+import { PlanetaryTheatersVisualizer } from '../planetary/PlanetaryTheatersVisualizer';
 
 export const WhatTheyLeftBehind: React.FC = () => {
   const { selectArtifact, scrollToChapter, isReducedMotion, activeDestination, setActiveDestination } = useNavigation();
@@ -175,6 +176,9 @@ export const WhatTheyLeftBehind: React.FC = () => {
             })}
           </div>
         </div>
+
+        {/* Interactive Planetary Landing Theaters Visualizer */}
+        <PlanetaryTheatersVisualizer />
 
         {/* Artifacts Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

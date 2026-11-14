@@ -1,10 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { NavigationProvider, useNavigation } from './context/NavigationContext';
+import { WebGLProvider } from './context/WebGLContext';
 import { Navbar } from './components/layout/Navbar';
 import { TimelineBar } from './components/layout/TimelineBar';
 import { CitationsDrawer } from './components/layout/CitationsDrawer';
 import { MobileMenu } from './components/layout/MobileMenu';
 import { ChapterOneSilence } from './components/cinematic/ChapterOneSilence';
+import { InteractiveSolarSystem } from './components/solarSystem/InteractiveSolarSystem';
+import { ForgottenWorldsStage } from './components/planetary/ForgottenWorldsStage';
 import { ArtifactMuseum } from './components/museum/ArtifactMuseum';
 import { FinalChapter } from './components/finalChapter/FinalChapter';
 import { WhatTheyLeftBehind } from './components/leftBehind/WhatTheyLeftBehind';
@@ -177,39 +180,13 @@ function ShellContent() {
         </div>
 
         {/* Chapter 2: Beyond Earth */}
-        <section
-          id="chapter-2"
-          className="scroll-mt-24 p-8 rounded-xl bg-space-card/40 border border-white/10"
-        >
-          <div className="max-w-3xl">
-            <span className="text-xs font-mono text-stellar-cyan tracking-widest uppercase block mb-2">
-              CHAPTER II // TRANSIT MECHANICS
-            </span>
-            <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight mb-4 text-stellar-white">
-              Beyond Earth
-            </h2>
-            <p className="text-stellar-gray text-lg leading-relaxed mb-6">
-              Escaping Earth's gravity well demands an acceleration to eleven kilometers per second. Every machine that ventured into the void was built within microscopic tolerances to survive the violent acoustic vibration of launch and the deep freeze of cosmic space.
-            </p>
-          </div>
+        <section id="chapter-2" className="scroll-mt-24">
+          <InteractiveSolarSystem />
         </section>
 
         {/* Chapter 3: The Forgotten Worlds */}
-        <section
-          id="chapter-3"
-          className="scroll-mt-24 p-8 rounded-xl bg-space-card/40 border border-white/10"
-        >
-          <div className="max-w-3xl">
-            <span className="text-xs font-mono text-stellar-amber tracking-widest uppercase block mb-2">
-              CHAPTER III // PLANETARY CONTEXT
-            </span>
-            <h2 className="font-display text-4xl sm:text-6xl font-bold tracking-tight mb-4 text-stellar-white">
-              The Forgotten Worlds
-            </h2>
-            <p className="text-stellar-gray text-lg leading-relaxed mb-6">
-              The equipment was never scattered at random. Each machine touched down on coordinates selected with surgical scientific precision across the Moon, Mars, Ceres, and asteroid 433 Eros.
-            </p>
-          </div>
+        <section id="chapter-3" className="scroll-mt-24">
+          <ForgottenWorldsStage />
         </section>
 
         {/* Chapter 4: Meet the Explorers (Interactive Digital Museum) */}
@@ -234,7 +211,9 @@ function ShellContent() {
 export function App() {
   return (
     <NavigationProvider>
-      <ShellContent />
+      <WebGLProvider>
+        <ShellContent />
+      </WebGLProvider>
     </NavigationProvider>
   );
 }

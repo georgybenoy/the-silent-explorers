@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigation } from '../../context/NavigationContext';
 import { matchesDestination, normalizeDestination } from '../../utils/destination';
+import { SolarTrajectoryStage } from './SolarTrajectoryStage';
 
 export const TheLegacy: React.FC = () => {
-  const { scrollToChapter, setIsCitationsOpen, isReducedMotion, activeDestination, setActiveDestination } = useNavigation();
+  const { scrollToChapter, setIsCitationsOpen, activeDestination, setActiveDestination } = useNavigation();
   const [activeStatusCategory, setActiveStatusCategory] = useState<'all' | 'active' | 'development' | 'planned' | 'proposed'>('all');
 
   return (
@@ -52,34 +53,8 @@ export const TheLegacy: React.FC = () => {
             <span className="text-stellar-gold">VECTOR: ACTIVE INTERPLANETARY TRANSIT</span>
           </div>
 
-          {/* SVG Deep Space Horizon Line */}
-          <div className="relative h-20 w-full flex items-center justify-center overflow-hidden">
-            <svg 
-              className="w-full h-full text-stellar-gold" 
-              viewBox="0 0 1000 80" 
-              fill="none" 
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              {/* Planetary Orbital Arcs */}
-              <path
-                d="M 0,70 Q 250,10 500,45 T 1000,20"
-                stroke="rgba(232, 154, 60, 0.35)"
-                strokeWidth="1.5"
-                strokeDasharray="4 4"
-              />
-              <path
-                d="M 0,55 C 300,55 450,25 700,35 C 850,42 950,15 1000,10"
-                stroke="#E89A3C"
-                strokeWidth="2"
-              />
-              {/* Planetary Waypoint Nodes */}
-              <circle cx="200" cy="55" r="4" fill="#38BDF8" className={isReducedMotion ? '' : 'animate-pulse'} />
-              <circle cx="450" cy="30" r="4" fill="#F59E0B" className={isReducedMotion ? '' : 'animate-pulse'} />
-              <circle cx="700" cy="35" r="4" fill="#A855F7" className={isReducedMotion ? '' : 'animate-pulse'} />
-              <circle cx="920" cy="18" r="4" fill="#10B981" className={isReducedMotion ? '' : 'animate-pulse'} />
-            </svg>
-          </div>
+          {/* 3D Solar System Trajectory Horizon Stage */}
+          <SolarTrajectoryStage />
 
           <div className="flex flex-wrap items-center justify-between text-[10px] font-mono text-zinc-500 pt-1">
             <span>WAYPOINTS: MOON (1971) → MARS (1997) → ASTEROIDS (2001) → CERES (2015) → TITAN (2030s)</span>

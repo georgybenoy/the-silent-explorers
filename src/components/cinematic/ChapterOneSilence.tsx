@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { useNavigation } from '../../context/NavigationContext';
 import { chapterOneScenes } from '../../data/chapterOneScenes';
 import { CosmicDustCanvas } from './CosmicDustCanvas';
+import { CinematicEarthOpening } from '../3d/CinematicEarthOpening';
 import { AttributionBadge } from './AttributionBadge';
 import { SceneHUDOverlay } from './SceneHUDOverlay';
 import type { CinematicSceneData } from '../../types/cinematic';
@@ -104,6 +105,9 @@ export function ChapterOneSilence() {
     >
       {/* Background Cosmic Starfield & Particle Atmosphere */}
       <CosmicDustCanvas />
+
+      {/* Cinematic 3D Earth Opening & Interplanetary Camera Choreography */}
+      <CinematicEarthOpening sceneIndex={activeSceneIndex} />
 
       {/* Visual Scene Plates with Smooth Transitions & Ken Burns Effect */}
       <div
