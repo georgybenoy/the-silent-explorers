@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "slug": "the-silence",
+    "romanNumeral": "I",
+    "title": "The Silence",
+    "subtitle": "Across alien regolith and frozen dust, humanity's monuments remain.",
+    "focusTheme": "Prologue & The Extraterrestrial Landscape",
+    "narrativeLead": "Millions of miles from Earth, in places where human boots have rarely—or never—walked, an alien wind occasionally sweeps across cold metal. Or in the lunar vacuum, no wind blows at all.",
+    "narrativeBody": [
+      "When we speak of space exploration, we celebrate the fiery roar of liftoffs, the breathless cheers inside Mission Control, and the first historic footprints pressed into alien soil. Yet when the cameras went dark, the missions did not vanish.",
+      "Across the Moon, Mars, Ceres, and distant asteroids, humanity has left behind its robotic explorers. They are not discarded junk. They are silent monuments of technological daring, perseverance, and curiosity—standing as testament to what humanity can accomplish when we dare to look outward."
+    ],
+    "keyMetrics": [
+      { "label": "Artifacts Tracked", "value": "8" },
+      { "label": "Planetary Bodies", "value": "4" },
+      { "label": "Historical Era", "value": "1969–2024" }
+    ],
+    "accentColor": "#E89A3C"
+  },
+  {
+    "id": 2,
+    "slug": "beyond-earth",
+    "romanNumeral": "II",
+    "title": "Beyond Earth",
+    "subtitle": "To leave home requires overcoming the gravity well and crossing the void.",
+    "focusTheme": "Orbital Mechanics & Deep Space Transit",
+    "targetDestination": "Solar System",
+    "narrativeLead": "Escaping Earth's gravity well demands an acceleration to eleven kilometers per second. But escaping the planet is only the beginning.",
+    "narrativeBody": [
+      "Every machine that ventured into the void was built within microscopic tolerances. They had to survive the violent acoustic vibration of launch, the searing thermal cycling of translunar and interplanetary cruise, and the relentless bombardment of cosmic radiation.",
+      "Each explorer carried a finite quantity of energy: chemical batteries, solar arrays sensitive to alien dust, or the steady, decaying warmth of plutonium. Their design was a race against the cold entropy of the solar system."
+    ],
+    "keyMetrics": [
+      { "label": "Escape Velocity", "value": "11.2", "unit": "km/s" },
+      { "label": "Vacuum Temperature", "value": "2.7", "unit": "Kelvin (Deep Space)" },
+      { "label": "Transit Windows", "value": "Every 26 Months (Mars)" }
+    ],
+    "accentColor": "#38BDF8"
+  },
+  {
+    "id": 3,
+    "slug": "the-forgotten-worlds",
+    "romanNumeral": "III",
+    "title": "The Forgotten Worlds",
+    "subtitle": "The Moon, the Red Planet, and the boulder-strewn belt.",
+    "focusTheme": "Planetary Context & Topography",
+    "targetDestination": "Moon",
+    "narrativeLead": "The equipment was never scattered at random. Each machine touched down on coordinates selected with surgical scientific precision.",
+    "narrativeBody": [
+      "On the Moon, Apollo rovers explored volcanic valleys like Hadley-Apennine and the landslide scarps of Taurus-Littrow. On Mars, landing craft targeted ancient catastrophic flood channels at Ares Vallis, volcanic plains at Gusev, hematite flats at Meridiani, and river deltas at Jezero.",
+      "Beyond the orbit of Mars, explorers braved the Main Asteroid Belt to rendezvous with primordial remnants: battered Vesta, briny dwarf planet Ceres, and peanut-shaped asteroid 433 Eros."
+    ],
+    "keyMetrics": [
+      { "label": "Moon Sites", "value": "Taurus-Littrow, Hadley Rille" },
+      { "label": "Mars Sites", "value": "Ares Vallis, Gusev, Meridiani, Jezero" },
+      { "label": "Belt Sites", "value": "Ceres, 433 Eros" }
+    ],
+    "accentColor": "#F59E0B"
+  },
+  {
+    "id": 4,
+    "slug": "meet-the-explorers",
+    "romanNumeral": "IV",
+    "title": "Meet the Explorers",
+    "subtitle": "The machines that expanded human perception.",
+    "focusTheme": "Interactive Digital Museum & Artifact Roster",
+    "narrativeLead": "Step into the digital museum. Explore the hardware, scientific payloads, and historical specifications of the eight pioneers.",
+    "narrativeBody": [
+      "From the Apollo Lunar Roving Vehicle that granted astronauts mobility across dozens of kilometers to Ingenuity, the tiny 1.8-kilogram rotorcraft that proved aerodynamic lift was possible in Mars's razor-thin air across 72 flights.",
+      "Each profile features documented technical blueprints, instrument suites, landing coordinates, and direct links to the official NASA Space Science Data Coordinated Archive (NSSDCA)."
+    ],
+    "keyMetrics": [
+      { "label": "Rovers & Rotorcraft", "value": "5" },
+      { "label": "Surface Stations", "value": "1" },
+      { "label": "Deep Space Orbiters", "value": "2" }
+    ],
+    "accentColor": "#E89A3C"
+  },
+  {
+    "id": 5,
+    "slug": "the-final-chapter",
+    "romanNumeral": "V",
+    "title": "The Final Chapter",
+    "subtitle": "How the missions ended: dust, winter, fuel depletion, and silence.",
+    "focusTheme": "Mission Conclusions & Last Transmissions",
+    "narrativeLead": "Every mission had a warranty. Every explorer outlasted it. But in the end, the solar system always claims its tribute.",
+    "narrativeBody": [
+      "For Spirit, it was the cold Martian sands of Troy, where a dragging wheel could no longer pull the chassis free to catch the winter sun. For Opportunity, it was a planet-engulfing dust storm in 2018 that choked its solar arrays after fifteen years of marathon driving.",
+      "For Dawn, it was hydrazine propellant exhaustion in October 2018, leaving it in a stable parking orbit around Ceres designed to remain impact-free for decades under strict planetary protection protocols. For Ingenuity, Flight 72 over featureless sand dunes in January 2024 damaged its rotor blade tips, concluding 72 historic flights on Mars. Read their final recorded engineering telemetry and transmissions."
+    ],
+    "keyMetrics": [
+      { "label": "Opportunity Sol Count", "value": "5,111", "unit": "Sols" },
+      { "label": "Ingenuity Flights", "value": "72", "unit": "Flights" },
+      { "label": "Spirit Longevity", "value": "24× Planned Warranty" }
+    ],
+    "accentColor": "#EF4444"
+  },
+  {
+    "id": 6,
+    "slug": "what-they-left-behind",
+    "romanNumeral": "VI",
+    "title": "What They Left Behind",
+    "subtitle": "The enduring physical and scientific footprint on other worlds.",
+    "focusTheme": "Physical Preservation & Ongoing Science",
+    "narrativeLead": "Their transmitters are silent, but their physical and scientific impact remains active.",
+    "narrativeBody": [
+      "The Apollo Laser Retroreflectors deployed in 1969–1972 require zero electricity and are still targeted today by laser pulses from observatories in New Mexico and France, proving the Moon recedes by 3.8 centimeters annually.",
+      "The tire tracks of Apollo rovers remain sharply defined in the lunar vacuum, untouched by wind or rain, awaiting humanity's return. At Valinor Hills, Ingenuity stands intact on the sands of Jezero Crater as humanity's first extraterrestrial airfield monument."
+    ],
+    "keyMetrics": [
+      { "label": "Lunar Drift Measured", "value": "3.8", "unit": "cm / year" },
+      { "label": "Lunar Regolith Footprint", "value": "Millions of Years Preserved" },
+      { "label": "Textbooks Rewritten", "value": "Countless" }
+    ],
+    "accentColor": "#10B981"
+  },
+  {
+    "id": 7,
+    "slug": "the-legacy",
+    "romanNumeral": "VII",
+    "title": "The Legacy",
+    "subtitle": "Space archaeology, planetary protection, and humanity's return.",
+    "focusTheme": "The Future & Space Heritage Preservation",
+    "narrativeLead": "When humanity returns to the Moon with the Artemis program and lands humans on Mars, these sites will not be scrapheaps. They will be world heritage monuments.",
+    "narrativeBody": [
+      "The Artemis Accords explicitly call for the preservation of historic lunar landing sites. Scientists, space archaeologists, and historians now study how these artifacts weathered half a century of radiation, thermal cycles, and micrometeoroids.",
+      "They went beyond. They discovered. They remain. And one day, future explorers will stand beside them under alien skies, gaze upon their dust-covered hulls, and remember where our cosmic journey began."
+    ],
+    "keyMetrics": [
+      { "label": "Artemis Program", "value": "Returning to the Moon" },
+      { "label": "Space Archaeology", "value": "Preserving Extraterrestrial Heritage" },
+      { "label": "Humanity's Reach", "value": "Interplanetary" }
+    ],
+    "accentColor": "#E89A3C"
+  }
+]

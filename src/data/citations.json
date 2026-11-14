@@ -1,0 +1,210 @@
+[
+  {
+    "id": "cit-nssdca-1972-096a",
+    "nssdcaId": "1972-096A",
+    "title": "Apollo 17 Command and Service Module America (1972-096A) Data Record",
+    "authorOrCenter": "NASA Goddard Space Flight Center",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "1972-12-11",
+    "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-096A",
+    "summary": "Master catalog entry for the Apollo 17 Command and Service Module (America). 1972-096A identifies the CSM spacecraft, while missionId 'apollo-17' serves as the internal mission key. Note: 1972-096C designates the LM Challenger ascent stage and 1972-096D designates the descent stage. The LRV-3 was surface equipment stowed on the descent stage and does not carry an independent spacecraft-level COSPAR/NSSDCA catalog number.",
+    "relatedArtifactIds": ["apollo-17-lrv"]
+  },
+  {
+    "id": "cit-alsj-apollo17",
+    "title": "Apollo 17 Lunar Surface Journal: EVA-3 Close-out & VIP Site Parking",
+    "authorOrCenter": "Eric M. Jones, NASA History Division",
+    "sourceType": "Apollo Lunar Surface Journal",
+    "publicationDate": "1995-01-01",
+    "url": "https://www.hq.nasa.gov/alsj/a17/a17.eva3close.html",
+    "summary": "Air-to-ground radio transcripts between Commander Eugene Cernan and CAPCOM Robert Parker in Houston detailing the final parking of LRV-3 at approximately 140 degrees heading, 158 meters east-northeast of Challenger to televise the ascent stage liftoff.",
+    "relatedArtifactIds": ["apollo-17-lrv"]
+  },
+  {
+    "id": "cit-lroc-coords-apollo17",
+    "title": "Coordinates of Apollo and Luna Landing Sites (LROC NAC Photogrammetry)",
+    "authorOrCenter": "Wagner et al. / Lunar Reconnaissance Orbiter Camera Team / ASU",
+    "sourceType": "Planetary Data System",
+    "publicationDate": "2017-03-01",
+    "url": "http://lroc.sese.asu.edu/",
+    "summary": "High-precision Mean Earth/Polar Axis coordinates derived from LROC NAC images: Apollo 17 LRV parked at 20.1896° N, 30.7769° E (distinct from LM Challenger descent stage at 20.1908° N, 30.7717° E).",
+    "relatedArtifactIds": ["apollo-17-lrv"]
+  },
+  {
+    "id": "cit-nssdca-1971-063a",
+    "nssdcaId": "1971-063A",
+    "title": "Apollo 15 Mission Record & ALSEP Experiment Surface Stations",
+    "authorOrCenter": "NASA Goddard Space Flight Center",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "1971-07-31",
+    "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063A",
+    "summary": "Master catalog record for Apollo 15. ALSEP was science equipment deployed on the lunar surface. Active telemetry from all Apollo ALSEP stations was terminated by NASA ground command on September 30, 1977.",
+    "relatedArtifactIds": ["apollo-15-alsep"]
+  },
+  {
+    "id": "cit-alsj-a15-coords",
+    "title": "Apollo 15 Lunar Surface Journal: ALSEP Central Station Coordinates",
+    "authorOrCenter": "Eric M. Jones, NASA History Division",
+    "sourceType": "Apollo Lunar Surface Journal",
+    "publicationDate": "1995-01-01",
+    "url": "https://history.nasa.gov/alsj/a15/a15.alsep.html",
+    "summary": "Documents the precise location of the Apollo 15 ALSEP Central Station at approximately 26.13406° N, 3.62991° E (approx. 110 m west-northwest of LM Falcon descent stage at 26.13222° N, 3.63386° E).",
+    "relatedArtifactIds": ["apollo-15-alsep"]
+  },
+  {
+    "id": "cit-nasa-lrrr-active",
+    "title": "NASA Lunar Laser Ranging Experiment & Passive Retroreflectors",
+    "authorOrCenter": "NASA Science Mission Directorate",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "2020-08-11",
+    "url": "https://science.nasa.gov/science-research/planetary-science/lunar-laser-ranging/",
+    "summary": "Documents that the Apollo 15 300-prism Laser Ranging Retroreflector (LRRR) was deployed as an independent passive experiment (~40 m west of the ALSEP station). A passive, unpowered optical reflector that remains usable for Earth-based lunar laser ranging, it does not actively transmit or operate independently, but reflects ground-fired laser pulses to measure the 3.8 cm/year lunar recession.",
+    "relatedArtifactIds": ["apollo-15-alsep"]
+  },
+  {
+    "id": "cit-nasa-sp287",
+    "title": "NASA SP-287: Apollo Lunar Surface Experiments Package (ALSEP) Systems Summary",
+    "authorOrCenter": "Bendix Corporation / NASA Manned Spacecraft Center",
+    "sourceType": "NASA History Division",
+    "publicationDate": "1972-04-01",
+    "url": "https://history.nasa.gov/alsj/alsj-ALSEP.html",
+    "summary": "Engineering report detailing passive seismic, magnetometer, and solar wind experiments deployed across Apollo 12, 14, 15, 16, and 17, and their SNAP-27 RTG power systems.",
+    "relatedArtifactIds": ["apollo-15-alsep"]
+  },
+  {
+    "id": "cit-nssdca-1996-068a",
+    "nssdcaId": "1996-068A",
+    "title": "Mars Pathfinder & Sojourner Rover Mission Summary",
+    "authorOrCenter": "NASA Goddard Space Flight Center",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "1997-07-04",
+    "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1996-068A",
+    "summary": "Official mission summary of Mars Pathfinder at Ares Vallis (19.33° N, 33.55° W). Documents Sojourner microrover deployment, rock analyses, and cessation of communications on September 27, 1997 (Sol 83). Exact cause of lost communication and the rover's final resting position are not conclusively established.",
+    "relatedArtifactIds": ["sojourner-pathfinder"]
+  },
+  {
+    "id": "cit-nssdca-2003-027a",
+    "nssdcaId": "2003-027A",
+    "title": "Mars Exploration Rover A (Spirit) Master Catalog Record",
+    "authorOrCenter": "NASA Goddard Space Flight Center",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "2004-01-04",
+    "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-027A",
+    "summary": "Full spacecraft record for Spirit, landing in Gusev Crater (14.5684° S, 175.4726° E), uncovering pure silica deposits at Home Plate, coming to rest at Troy (14.6083° S, 175.5262° E), and final communication on March 22, 2010.",
+    "relatedArtifactIds": ["spirit-mer-a"]
+  },
+  {
+    "id": "cit-nssdca-2003-032a",
+    "nssdcaId": "2003-032A",
+    "title": "Mars Exploration Rover B (Opportunity) Master Catalog Record",
+    "authorOrCenter": "NASA Goddard Space Flight Center",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "2004-01-25",
+    "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-032A",
+    "summary": "Master record for Opportunity's marathon mission across Meridiani Planum (1.9462° S, 354.4734° E), driving 45.16 km and concluding after the 2018 global dust storm (Sol 5111).",
+    "relatedArtifactIds": ["opportunity-mer-b"]
+  },
+  {
+    "id": "cit-jpl-opportunity-end",
+    "title": "NASA's Record-Setting Opportunity Rover Mission on Mars Comes to End",
+    "authorOrCenter": "NASA Jet Propulsion Laboratory",
+    "sourceType": "JPL Mission Documentation",
+    "publicationDate": "2019-02-13",
+    "url": "https://www.jpl.nasa.gov/news/nasas-record-setting-opportunity-rover-mission-on-mars-comes-to-end",
+    "summary": "Press release detailing Opportunity's final telemetry in Perseverance Valley, atmospheric optical depth tau estimated at approximately 10.8, and the formal mission conclusion.",
+    "relatedArtifactIds": ["opportunity-mer-b"]
+  },
+  {
+    "id": "cit-nssdca-2020-052a",
+    "nssdcaId": "2020-052A",
+    "title": "Mars 2020 Perseverance & Ingenuity Helicopter Subsystem",
+    "authorOrCenter": "NASA Goddard Space Flight Center",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "2021-02-18",
+    "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-052A",
+    "summary": "Catalog record documenting the Mars 2020 mission and the Ingenuity rotorcraft, landing at Jezero Crater, executing 72 flights, and concluding aerial operations at Valinor Hills.",
+    "relatedArtifactIds": ["ingenuity-mars2020"]
+  },
+  {
+    "id": "cit-jpl-ingenuity-conclusion",
+    "title": "After 72 Flights, US Mars Helicopter Mission Concludes",
+    "authorOrCenter": "NASA Jet Propulsion Laboratory",
+    "sourceType": "JPL Mission Documentation",
+    "publicationDate": "2024-01-25",
+    "url": "https://www.jpl.nasa.gov/news/after-72-flights-us-mars-helicopter-mission-concludes",
+    "summary": "Official JPL announcement documenting that Flight 72 on January 18, 2024 sustained rotor blade tip fractures upon landing in Jezero Crater, officially concluding the flight demonstration mission.",
+    "relatedArtifactIds": ["ingenuity-mars2020"]
+  },
+  {
+    "id": "cit-nssdca-2007-043a",
+    "nssdcaId": "2007-043A",
+    "title": "Dawn Mission to Vesta and Ceres Master Record",
+    "authorOrCenter": "NASA Goddard Space Flight Center",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "2007-09-27",
+    "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-043A",
+    "summary": "Spacecraft catalog record for Dawn, covering ion engine operations, Ceres orbit insertion, discovery of sodium carbonate bright spots in Occator Crater, and hydrazine fuel exhaustion on October 31, 2018.",
+    "relatedArtifactIds": ["dawn-spacecraft"]
+  },
+  {
+    "id": "cit-jpl-dawn-protection",
+    "title": "NASA Dawn Mission End-of-Mission & Planetary Protection Analysis",
+    "authorOrCenter": "NASA Jet Propulsion Laboratory",
+    "sourceType": "JPL Mission Documentation",
+    "publicationDate": "2018-11-01",
+    "url": "https://www.jpl.nasa.gov/missions/dawn",
+    "summary": "NASA's formal planetary protection requirement mandated that Dawn must not impact Ceres for at least 20 years. Orbital simulations demonstrate with greater than 99% confidence that the uncontrolled orbit will remain stable and avoid impact for at least 50 years.",
+    "relatedArtifactIds": ["dawn-spacecraft"]
+  },
+  {
+    "id": "cit-nssdca-1996-008a",
+    "nssdcaId": "1996-008A",
+    "title": "NEAR Shoemaker Mission to Asteroid 433 Eros",
+    "authorOrCenter": "NASA Goddard Space Flight Center / Johns Hopkins APL",
+    "sourceType": "NSSDCA Master Catalog",
+    "publicationDate": "1996-02-17",
+    "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1996-008A",
+    "summary": "Catalog entry for the first soft landing on an asteroid (433 Eros at 35.7° S, 279.5° W body-fixed coordinates on February 12, 2001). Documents approximately two weeks of post-landing operations and specifically seven days of dedicated surface gamma-ray measurements.",
+    "relatedArtifactIds": ["near-shoemaker"]
+  },
+  {
+    "id": "cit-nasa-artemis-manifest",
+    "title": "NASA Artemis Campaign Architecture & Mission Manifest Baselines",
+    "authorOrCenter": "NASA Exploration Systems Development Directorate",
+    "sourceType": "NASA Mission Documentation",
+    "publicationDate": "2026-11-14",
+    "url": "https://www.nasa.gov/artemis",
+    "summary": "Documents NASA's official Artemis manifest planning baselines as of November 2026, distinguishing Artemis II (crewed lunar flyby), Artemis III (planned 2027 low-Earth-orbit demonstration mission), and Artemis IV (planned 2028 crewed lunar landing mission at the South Pole).",
+    "relatedArtifactIds": ["apollo-17-lrv", "apollo-15-alsep"]
+  },
+  {
+    "id": "cit-nasa-dragonfly-status",
+    "title": "Dragonfly: NASA New Frontiers Mission to Titan Project Status",
+    "authorOrCenter": "Johns Hopkins Applied Physics Laboratory / NASA GSFC",
+    "sourceType": "NASA Mission Documentation",
+    "publicationDate": "2026-11-14",
+    "url": "https://www.nasa.gov/dragonfly",
+    "summary": "Documents the Dragonfly rotorcraft lander mission targeting a NET July 2028 launch window. Details current hardware integration, environmental testing phases, and planned exploration of Titan's organic dune fields upon arrival in the mid-2030s.",
+    "relatedArtifactIds": ["ingenuity-mars2020"]
+  },
+  {
+    "id": "cit-nasa-viper-clps-update",
+    "title": "NASA VIPER Lunar Rover & CLPS Delivery Allocation Update",
+    "authorOrCenter": "NASA Science Mission Directorate",
+    "sourceType": "NASA Mission Documentation",
+    "publicationDate": "2026-11-14",
+    "url": "https://science.nasa.gov/mission/viper/",
+    "summary": "Authoritative update on the VIPER rover. Following NASA's discontinuation of the original 2024 commercial delivery arrangement, the completed flight rover was preserved and allocated for delivery to the lunar South Pole aboard Blue Origin's Blue Moon MK1 lander under the CLPS initiative, targeted for late 2027.",
+    "relatedArtifactIds": ["apollo-15-alsep", "apollo-17-lrv"]
+  },
+  {
+    "id": "cit-nasa-msr-architecture-review",
+    "title": "NASA Mars Sample Return Architecture Review & Concept Studies",
+    "authorOrCenter": "NASA Planetary Science Division",
+    "sourceType": "NASA Mission Documentation",
+    "publicationDate": "2026-11-14",
+    "url": "https://mars.nasa.gov/msr/",
+    "summary": "Documents NASA and international partner architecture studies evaluating alternative, lower-cost concepts to retrieve the scientifically selected samples cached by the Perseverance rover in Jezero Crater, without promising an unverified return date.",
+    "relatedArtifactIds": ["opportunity-mer-b", "sojourner-pathfinder", "spirit-mer-a", "ingenuity-mars2020"]
+  }
+]

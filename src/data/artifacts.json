@@ -1,0 +1,829 @@
+[
+  {
+    "artifactId": "apollo-17-lrv",
+    "name": "Apollo 17 Lunar Roving Vehicle",
+    "missionId": "apollo-17",
+    "missionName": "Apollo 17",
+    "missionNssdcaId": "1972-096A",
+    "equipmentNssdcaId": null,
+    "nssdcaClarification": "1972-096A specifically identifies the Apollo 17 Command and Service Module (America), while missionId 'apollo-17' serves as the internal mission key. 1972-096C refers to the Lunar Module Challenger ascent stage and 1972-096D refers to the descent stage. The LRV-3 was surface equipment stowed on the descent stage quad 1 and does not possess an independent spacecraft-level NSSDCA/COSPAR catalog identifier.",
+    "destination": "Moon",
+    "targetBody": "Moon",
+    "operationalStatus": "decommissioned",
+    "statusLabel": "Decommissioned on Lunar Surface",
+    "missionEndReason": "Mission concluded; rover parked at the VIP site to allow ground controllers in Houston to remotely operate the television camera and film the LM ascent stage liftoff; primary batteries expired as planned.",
+    "launchDate": "1972-12-07",
+    "landingDate": "1972-12-11",
+    "endOfMissionDate": "1972-12-14",
+    "lastContactDate": "1972-12-14",
+    "locationType": "final_resting_location",
+    "coordinates": {
+      "latitude": 20.1896,
+      "longitude": 30.7769,
+      "semanticLabel": "VIP Camera Parking Site",
+      "landingSiteName": "Taurus-Littrow Valley",
+      "coordinateString": "20.1896° N, 30.7769° E",
+      "bodyRadiusKm": 1737.4,
+      "derivationSource": "LROC NAC Photogrammetric Coordinates / Wagner et al. 2017 (Located approx. 158 m east-northeast of LM Challenger descent stage at 20.1908° N, 30.7717° E)"
+    },
+    "specs": {
+      "massKg": 210,
+      "dimensionsMeters": "3.1m × 2.3m × 1.1m",
+      "powerSource": "Primary Batteries",
+      "designedLifespanDays": 3,
+      "actualLifespanDays": 3,
+      "distanceTraveledKm": 35.89
+    },
+    "instruments": [
+      {
+        "name": "Ground-Controlled Television Assembly",
+        "acronym": "GCTA",
+        "purpose": "Color television camera remotely operated by Edward Fendell in Houston Mission Control",
+        "keyFinding": "Filmed the Lunar Module Challenger ascent stage liftoff from the lunar surface on December 14, 1972"
+      },
+      {
+        "name": "Lunar Communications Relay Unit",
+        "acronym": "LCRU",
+        "purpose": "Direct voice, telemetry, and color television broadcast link to Earth stations",
+        "keyFinding": "Enabled uninterrupted communications while traversing deep valleys beyond the LM line-of-sight"
+      },
+      {
+        "name": "Traverse Gravimeter Experiment",
+        "acronym": "TGE",
+        "purpose": "High-precision measurement of relative gravity changes across geological stations",
+        "keyFinding": "Measured sub-surface density variations and basalt layer thickness across Taurus-Littrow"
+      }
+    ],
+    "summary": "The final lunar roving vehicle driven by Eugene Cernan and Harrison Schmitt, parked at the VIP site to film humanity's last departure from the Moon.",
+    "documentaryNarrative": "Resting in the high-walled lunar valley of Taurus-Littrow, Apollo 17's rover remains where Commander Gene Cernan parked it on December 14, 1972. While spared from atmospheric wind and liquid water erosion, the vehicle is not untouched: it continuously endures space weathering, micrometeoroid bombardment, intense solar ultraviolet radiation, and severe diurnal thermal swings across more than five decades.",
+    "scientificLegacy": "Enabled astronauts Eugene Cernan and Harrison Schmitt to traverse 35.89 kilometers across Taurus-Littrow (up to 7.6 km from the Lunar Module). This mobility enabled astronaut-geologist Harrison Schmitt to discover the volcanic orange glass beads at Shorty Crater, which provided evidence of ancient explosive pyroclastic volcanism in lunar history.",
+    "finalMomentsStory": "Cernan drove the rover to the 'VIP site' approximately 158 meters east-northeast of the Challenger lander, carefully aligning its heading to 140 degrees so ground controller Edward Fendell in Houston could tilt and zoom the camera to capture Challenger's ascent stage liftoff.",
+    "currentCondition": "Resting on the lunar surface at Taurus-Littrow. While the Moon lacks atmospheric wind and rain, the hardware is not immune to degradation: it experiences continuous space weathering, micrometeoroid bombardment, cosmic radiation, and severe thermal cycling between +120°C in sunlight and -130°C in shadow. Orbital imaging by the LROC Narrow Angle Camera confirms the vehicle remains in place at the VIP site.",
+    "historicalTransmissions": [
+      {
+        "timestampUtc": "1972-12-14T22:41:00Z",
+        "sourceType": "air_to_ground",
+        "content": "I'm on the surface; and, as I take man's last step from the surface, back home for some time to come... as we leave the Moon at Taurus-Littrow, we leave as we came and, God willing, as we shall return, with peace and hope for all mankind. Godspeed the crew of Apollo 17.",
+        "speakerOrTransmitter": "Gene Cernan (Apollo 17 Commander)",
+        "citationUrl": "https://history.nasa.gov/alsj/a17/a17.eva3close.html",
+        "historicalContext": "Verbatim air-to-ground radio transmission spoken by Commander Gene Cernan on the lunar surface before entering the LM Challenger hatch (170:41:00 GET)."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NSSDCA Master Catalog: Apollo 17 Mission",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1972-096A",
+        "sourceRepository": "NSSDCA Master Catalog",
+        "supportedClaims": [
+          "Mission dates",
+          "Mission NSSDCA identifier 1972-096A",
+          "Taurus-Littrow landing site"
+        ]
+      },
+      {
+        "title": "Apollo Lunar Surface Journal: Apollo 17 EVA-3 Close-out",
+        "url": "https://www.hq.nasa.gov/alsj/a17/a17.eva3close.html",
+        "sourceRepository": "Apollo Lunar Surface Journal",
+        "supportedClaims": [
+          "Parking procedure at VIP site",
+          "Verbatim radio communication",
+          "140 degree alignment"
+        ]
+      },
+      {
+        "title": "Coordinates of Apollo and Luna Landing Sites (LROC / Wagner et al.)",
+        "url": "http://lroc.sese.asu.edu/",
+        "sourceRepository": "NASA Planetary Data System",
+        "supportedClaims": [
+          "LRV coordinates 20.1896° N, 30.7769° E",
+          "Distance of 158 m from LM descent stage"
+        ]
+      }
+    ],
+    "media": {
+      "fallbackImagePath": "/images/artifacts/apollo-17-lrv.jpg",
+      "thumbnailPath": "/images/artifacts/apollo-17-lrv.jpg",
+      "photoCredits": "NASA / Apollo Lunar Surface Journal / Eugene Cernan"
+    }
+  },
+  {
+    "artifactId": "apollo-15-alsep",
+    "name": "Apollo 15 ALSEP (Central Station)",
+    "missionId": "apollo-15",
+    "missionName": "Apollo 15",
+    "missionNssdcaId": "1971-063A",
+    "equipmentNssdcaId": null,
+    "nssdcaClarification": "1971-063A designates the Apollo 15 mission. 1971-063C designates the LM Falcon ascent stage and 1971-063D designates the descent stage. ALSEP was science equipment deployed on the lunar surface and does not possess an independent COSPAR/NSSDCA spacecraft identifier.",
+    "destination": "Moon",
+    "targetBody": "Moon",
+    "operationalStatus": "decommissioned",
+    "statusLabel": "Decommissioned by Command (Sept 30, 1977)",
+    "missionEndReason": "All five operational Apollo ALSEP stations across the Moon were formally deactivated by NASA command sequence on September 30, 1977 due to budget constraints and RTG electrical power decay after six years of active operations.",
+    "launchDate": "1971-07-26",
+    "landingDate": "1971-07-30",
+    "endOfMissionDate": "1977-09-30",
+    "lastContactDate": "1977-09-30",
+    "locationType": "experiment_station",
+    "coordinates": {
+      "latitude": 26.13406,
+      "longitude": 3.62991,
+      "semanticLabel": "ALSEP Central Station Site",
+      "landingSiteName": "Hadley-Apennine Basin",
+      "coordinateString": "26.13406° N, 3.62991° E",
+      "bodyRadiusKm": 1737.4,
+      "derivationSource": "Apollo Lunar Surface Journal & NASA Lunar Landing Site Catalog (Located approx. 110 m west-northwest of LM Falcon descent stage at 26.13222° N, 3.63386° E)"
+    },
+    "specs": {
+      "massKg": 135,
+      "dimensionsMeters": "1.8m central station + dispersed sensor array",
+      "powerSource": "RTG (Nuclear)",
+      "designedLifespanDays": 365,
+      "actualLifespanDays": 2253
+    },
+    "instruments": [
+      {
+        "name": "Passive Seismic Experiment",
+        "acronym": "PSE",
+        "purpose": "Detection of deep moonquakes, shallow moonquakes, and meteoroid impacts",
+        "keyFinding": "Provided data establishing lunar internal structure (crust, lithosphere, and mantle)"
+      },
+      {
+        "name": "Lunar Surface Magnetometer",
+        "acronym": "LSM",
+        "purpose": "Measurement of the interplanetary and intrinsic magnetic fields at the lunar surface",
+        "keyFinding": "Determined local remanent magnetic fields and internal electrical conductivity of the Moon"
+      },
+      {
+        "name": "Solar Wind Spectrometer",
+        "acronym": "SWS",
+        "purpose": "Measurement of energy spectra and direction of solar wind electrons and positive ions",
+        "keyFinding": "Mapped interaction between solar plasma and the Moon's unshielded surface"
+      }
+    ],
+    "associatedEquipment": [
+      {
+        "equipmentId": "apollo-15-lrrr",
+        "name": "Apollo 15 Laser Ranging Retroreflector (LRRR)",
+        "equipmentType": "passive_experiment",
+        "operationalStatus": "passive_operational",
+        "locationType": "experiment_station",
+        "coordinates": {
+          "latitude": 26.13341,
+          "longitude": 3.6285,
+          "semanticLabel": "LRRR Passive Reflector Array Site",
+          "landingSiteName": "Hadley-Apennine Basin",
+          "coordinateString": "26.13341° N, 3.62850° E",
+          "bodyRadiusKm": 1737.4,
+          "derivationSource": "LROC NAC Photogrammetry (Deployed ~40 m west of ALSEP central station, ~140 m west of LM Falcon)"
+        },
+        "description": "A passive, unpowered optical array of 300 fused-silica corner-cube prisms. Deployed as an independent experiment separate from the active ALSEP electronic station.",
+        "operationalNotes": "A passive, unpowered optical reflector that remains usable for Earth-based lunar laser ranging. It does not actively transmit or operate independently, but passively reflects laser pulses fired from terrestrial observatories (e.g. McDonald Observatory, Apache Point) to calculate the 3.8 cm/year lunar recession rate and test gravitational physics.",
+        "sources": [
+          {
+            "title": "NASA Lunar Laser Ranging Experiment",
+            "url": "https://science.nasa.gov/science-research/planetary-science/lunar-laser-ranging/",
+            "sourceRepository": "NSSDCA Master Catalog",
+            "supportedClaims": [
+              "Passive optical design",
+              "Ongoing laser ranging use",
+              "Distance recession measurement"
+            ]
+          }
+        ],
+        "imagePath": "/images/artifacts/apollo-15-lrrr.jpg",
+        "photoCredits": "NASA / Goddard / Arizona State University (LROC NAC / PIA13037)"
+      }
+    ],
+    "summary": "A nuclear-powered scientific station deployed near Hadley Rille that operated for six years until commanded off in 1977. Its companion passive laser retroreflector remains useful today.",
+    "documentaryNarrative": "Deployed by astronauts David Scott and James Irwin, the Apollo 15 ALSEP transformed Hadley-Apennine into an active planetary observatory. Powered by a SNAP-27 radioisotope thermoelectric generator fueled by plutonium-238, it transmitted geophysical measurements back to Earth until NASA issued a final deactivation command on September 30, 1977.",
+    "scientificLegacy": "Discovered that the Moon experiences deep moonquakes correlated with tidal stresses from Earth, and established the baseline for lunar core size and internal thermal structure.",
+    "finalMomentsStory": "On September 30, 1977, NASA ground controllers at Goddard Space Flight Center transmitted the final shutdown command to all operating ALSEP stations on the Moon due to funding constraints and diminishing RTG power.",
+    "currentCondition": "The ALSEP central station and surface scientific sensors are permanently silent and cold, enduring space weathering, micrometeoroid impacts, and cyclic thermal stress; the nearby separate 300-prism retroreflector array remains passively oriented toward Earth, continuing to reflect laser pulses from terrestrial observatories.",
+    "historicalTransmissions": [
+      {
+        "timestampUtc": "1977-09-30T23:59:00Z",
+        "sourceType": "ground_command",
+        "content": "Final command sequence transmitted to ALSEP network. Transmitters de-energized. Lunar science stations 12, 14, 15, 16, and 17 formally retired due to budget reductions and declining SNAP-27 RTG thermal output.",
+        "speakerOrTransmitter": "NASA Goddard Space Flight Center Network Operations",
+        "citationUrl": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063A",
+        "historicalContext": "Formal mission shutdown log entry recording the deactivation of the Apollo lunar scientific network."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NSSDCA Master Catalog: Apollo 15 Mission",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1971-063A",
+        "sourceRepository": "NSSDCA Master Catalog",
+        "supportedClaims": [
+          "Mission dates",
+          "Mission NSSDCA ID 1971-063A",
+          "Landing site Hadley-Apennine"
+        ]
+      },
+      {
+        "title": "NASA SP-287 ALSEP Systems Summary",
+        "url": "https://history.nasa.gov/alsj/alsj-ALSEP.html",
+        "sourceRepository": "NASA History Division",
+        "supportedClaims": [
+          "Instrument descriptions",
+          "SNAP-27 RTG power source",
+          "September 30, 1977 deactivation date"
+        ]
+      },
+      {
+        "title": "Apollo Lunar Surface Journal: Apollo 15 ALSEP Deployment",
+        "url": "https://history.nasa.gov/alsj/a15/a15.alsep.html",
+        "sourceRepository": "Apollo Lunar Surface Journal",
+        "supportedClaims": [
+          "Central station location 26.13406° N, 3.62991° E",
+          "Separate deployment of LRRR ~40 m away"
+        ]
+      }
+    ],
+    "media": {
+      "fallbackImagePath": "/images/artifacts/apollo-15-alsep.jpg",
+      "thumbnailPath": "/images/artifacts/apollo-15-alsep.jpg",
+      "photoCredits": "NASA / Apollo 15 Crew / David Scott"
+    }
+  },
+  {
+    "artifactId": "sojourner-pathfinder",
+    "name": "Sojourner (Mars Pathfinder)",
+    "missionId": "mars-pathfinder",
+    "missionName": "Mars Pathfinder",
+    "missionNssdcaId": "1996-068A",
+    "equipmentNssdcaId": null,
+    "nssdcaClarification": "1996-068A designates the Mars Pathfinder spacecraft (lander and rover combination). Sojourner was deployed from the lander Carl Sagan Memorial Station and does not possess an independent COSPAR/NSSDCA identifier.",
+    "destination": "Mars",
+    "targetBody": "Mars",
+    "operationalStatus": "decommissioned",
+    "statusLabel": "Mission Concluded / Rested at Ares Vallis",
+    "missionEndReason": "Communications ceased on September 27, 1997 (Sol 83). The exact cause of the communication loss is not conclusively established, though mission engineers suspected auxiliary battery depletion and declining spacecraft temperatures. The rover's exact final resting position is not established. Without the lander relay, communication with Sojourner ceased.",
+    "launchDate": "1996-12-04",
+    "landingDate": "1997-07-04",
+    "endOfMissionDate": "1997-09-27",
+    "lastContactDate": "1997-09-27",
+    "locationType": "final_resting_location",
+    "coordinates": {
+      "latitude": 19.327,
+      "longitude": -33.55,
+      "semanticLabel": "Ares Vallis Surface Traversal Vicinity (Near Carl Sagan Memorial Station)",
+      "landingSiteName": "Ares Vallis (Carl Sagan Memorial Station)",
+      "coordinateString": "19.33° N, 33.55° W",
+      "bodyRadiusKm": 3389.5,
+      "derivationSource": "USGS / JPL Mars Pathfinder Mission Records (Lander touched down at 19.327° N, 33.550° W; rover's precise final resting position relative to the lander was not determined before communications ended and is not established in available sources)"
+    },
+    "specs": {
+      "massKg": 11.5,
+      "dimensionsMeters": "0.65m × 0.48m × 0.30m",
+      "powerSource": "Solar Arrays",
+      "designedLifespanDays": 7,
+      "actualLifespanDays": 83,
+      "distanceTraveledKm": 0.1
+    },
+    "instruments": [
+      {
+        "name": "Alpha Proton X-Ray Spectrometer",
+        "acronym": "APXS",
+        "purpose": "In-situ elemental chemical composition analysis of Martian rocks and regolith",
+        "keyFinding": "Analyzed volcanic rocks 'Barnacle Bill' and 'Yogi', finding high silica content similar to terrestrial andesites"
+      },
+      {
+        "name": "Stereo Forward Cameras",
+        "acronym": "Cameras",
+        "purpose": "Hazard avoidance, micro-terrain mapping, and robotic autonomous navigation",
+        "keyFinding": "Provided humanity's first ground-level 3D view of Martian flood-worn pebbles"
+      }
+    ],
+    "summary": "Humanity's first successful Mars rover, deployed from the Carl Sagan Memorial Station to traverse the ancient flood plains of Ares Vallis for 83 sols until lander communications ceased on September 27, 1997. The exact cause of communication loss and the rover's exact final resting position are not established.",
+    "documentaryNarrative": "On July 4, 1997, Mars Pathfinder bounced to a halt inside an airbag cocoon in Ares Vallis—an ancient catastrophic flood basin. The tiny microrover Sojourner rolled down the lander ramps and became the first wheeled vehicle to explore an alien world, ushering in the modern era of continuous Mars exploration.",
+    "scientificLegacy": "Demonstrated low-cost planetary mobility, verified that ancient catastrophic floods washed through Ares Vallis, and pioneered the APXS contact sensor technique utilized by every subsequent Mars rover.",
+    "finalMomentsStory": "Communications with the Carl Sagan Memorial Station ceased on September 27, 1997 (Sol 83). While engineers suspected battery depletion and declining spacecraft temperatures, the exact cause of communication loss is not conclusively established. The rover's exact final resting position relative to the lander is not established in available sources. Without the lander relay, contact could not be regained.",
+    "currentCondition": "Rested on the rocky regolith of Ares Vallis. Subject to Martian dust accumulation, severe diurnal thermal cycling (-80°C to -15°C), and low-pressure carbon dioxide atmosphere. Condition modeled from atmospheric deposition rates; the rover's exact final resting position is not established in available sources.",
+    "historicalTransmissions": [
+      {
+        "timestampUtc": "1997-09-27T10:23:00Z",
+        "sol": 83,
+        "sourceType": "telemetry_log",
+        "content": "Sol 83: Final successful communications session between the Carl Sagan Memorial Station and the Deep Space Network. Subsequent communications attempts were unacknowledged. The exact cause of the communication loss is not conclusively established, though battery depletion and thermal decline were suspected; the rover's exact final position is not established.",
+        "speakerOrTransmitter": "JPL Mars Pathfinder Flight Operations Log (NSSDCA 1996-068A)",
+        "citationUrl": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1996-068A",
+        "historicalContext": "Documented mission timeline entry recording the severance of the communications relay through the Pathfinder lander."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NSSDCA Master Catalog: Mars Pathfinder",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1996-068A",
+        "sourceRepository": "NSSDCA Master Catalog",
+        "supportedClaims": [
+          "Landing date July 4, 1997",
+          "Coordinates 19.33° N, 33.55° W",
+          "Last contact September 27, 1997",
+          "Sol 83 duration"
+        ]
+      },
+      {
+        "title": "JPL Mars Pathfinder Science Results",
+        "url": "https://mars.nasa.gov/mpf/",
+        "sourceRepository": "JPL Mission Documentation",
+        "supportedClaims": [
+          "APXS rock analysis",
+          "Andesite composition discovery",
+          "100-meter traverse"
+        ]
+      }
+    ],
+    "media": {
+      "fallbackImagePath": "/images/artifacts/sojourner.jpg",
+      "thumbnailPath": "/images/artifacts/sojourner.jpg",
+      "photoCredits": "NASA / JPL-Caltech"
+    }
+  },
+  {
+    "artifactId": "spirit-mer-a",
+    "name": "Spirit (MER-A)",
+    "missionId": "mer-a",
+    "missionName": "Mars Exploration Rover A",
+    "missionNssdcaId": "2003-027A",
+    "equipmentNssdcaId": "2003-027A",
+    "nssdcaClarification": "2003-027A is the official NSSDCA catalog identifier for the MER-A spacecraft and rover Spirit.",
+    "destination": "Mars",
+    "targetBody": "Mars",
+    "operationalStatus": "mission_concluded",
+    "statusLabel": "Mission Concluded / Resting in the Sands of Troy",
+    "missionEndReason": "Trapped in the loose sulfate sands of Troy in May 2009 with a previously failed right-front wheel; unable to achieve favorable tilt toward the northern sun for winter, resulting in critical battery depletion during Sol 2210.",
+    "launchDate": "2003-06-10",
+    "landingDate": "2004-01-04",
+    "endOfMissionDate": "2011-05-25",
+    "lastContactDate": "2010-03-22",
+    "locationType": "final_resting_location",
+    "coordinates": {
+      "latitude": -14.6083,
+      "longitude": 175.5262,
+      "semanticLabel": "Final Resting Location at Troy (West of Home Plate, Gusev Crater)",
+      "landingSiteName": "Troy / Columbia Hills (Landed at Columbia Memorial Station 14.5684° S, 175.4726° E)",
+      "coordinateString": "14.6083° S, 175.5262° E",
+      "bodyRadiusKm": 3389.5,
+      "derivationSource": "NASA JPL MER-A Localization Network & MRO HiRISE Orbital Imaging (ESP_016180_1655 / Arvidson et al. 2010)"
+    },
+    "specs": {
+      "massKg": 185,
+      "dimensionsMeters": "1.5m × 2.3m × 1.6m",
+      "powerSource": "Solar Arrays",
+      "designedLifespanDays": 90,
+      "actualLifespanDays": 2210,
+      "distanceTraveledKm": 7.73
+    },
+    "instruments": [
+      {
+        "name": "Panoramic Camera",
+        "acronym": "Pancam",
+        "purpose": "High-resolution multi-spectral stereoscopic color imaging of geology and atmosphere",
+        "keyFinding": "Captured sweeping vistas from the summit of Husband Hill, documenting active dust devils"
+      },
+      {
+        "name": "Miniature Thermal Emission Spectrometer",
+        "acronym": "Mini-TES",
+        "purpose": "Mineralogy identification from afar via infrared thermal emission",
+        "keyFinding": "Identified carbonate-rich rocks at Comanche outcrop, confirming ancient neutral-water conditions"
+      },
+      {
+        "name": "Mössbauer Spectrometer",
+        "acronym": "MB",
+        "purpose": "Iron mineralogy and oxidation state analysis",
+        "keyFinding": "Verified extensive hydrothermal alteration in the soils of Home Plate"
+      }
+    ],
+    "summary": "The resilient rover that explored the Columbia Hills and Home Plate, where its malfunctioning front wheel churned up silica-rich soils indicating possible ancient hydrothermal or fumarolic activity, before coming to rest at Troy.",
+    "documentaryNarrative": "Touching down in Gusev Crater, Spirit faced harsh volcanic terrain. When its right front wheel seized in 2006, drivers navigated the rover in reverse. Dragging the malfunctioning wheel through the soil near Home Plate churned up bright subsurface material composed of nearly pure (up to 90%) silica. Scientists identified volcanic fumaroles or hydrothermal hot springs as candidate environments for its formation, providing evidence of past water-rock interactions.",
+    "scientificLegacy": "Provided strong mineralogical evidence of past hydrothermal or fumarolic activity on early Mars through the discovery of localized silica-rich deposits near Home Plate, demonstrating that water and thermal energy once interacted in the Martian crust.",
+    "finalMomentsStory": "In May 2009, Spirit broke through a crusty sulfur surface into hidden soft sand at a location named 'Troy.' Unable to free itself and unable to tilt its solar arrays toward the northern sun, the rover lost power during the harsh Martian winter of 2010.",
+    "currentCondition": "Embedded in soft sulfate sand at Troy on the west side of Home Plate. Solar arrays covered by accumulated atmospheric dust. Subject to extreme winter cold (-100°C) without active survival heaters. Condition modeled from Martian climate records.",
+    "historicalTransmissions": [
+      {
+        "timestampUtc": "2010-03-22T13:15:00Z",
+        "sol": 2210,
+        "sourceType": "telemetry_log",
+        "content": "Sol 2210 (March 22, 2010): Final carrier signal and engineering telemetry received from Spirit via Mars Odyssey orbiter relay. Low battery voltage telemetry indicated spacecraft entering automated survival deep-sleep; no subsequent transmissions detected despite 1,200 recovery attempts.",
+        "speakerOrTransmitter": "JPL Mars Exploration Rover Flight Engineering Log (NSSDCA 2003-027A)",
+        "citationUrl": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-027A",
+        "historicalContext": "Engineering log recording the final successful telemetry packet received before winter battery exhaustion in Troy."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NSSDCA Master Catalog: Spirit (MER-A)",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-027A",
+        "sourceRepository": "NSSDCA Master Catalog",
+        "supportedClaims": [
+          "Landing date January 4, 2004",
+          "Final contact March 22, 2010",
+          "Mission conclusion May 25, 2011",
+          "Coordinates -14.5684° S, 175.4726° E"
+        ]
+      },
+      {
+        "title": "NASA JPL Spirit Mission Archive",
+        "url": "https://mars.nasa.gov/mer/mission/overview/",
+        "sourceRepository": "JPL Mission Documentation",
+        "supportedClaims": [
+          "Silica discovery at Home Plate",
+          "Entrapment in Troy sand",
+          "7.73 km total distance"
+        ]
+      }
+    ],
+    "media": {
+      "fallbackImagePath": "/images/artifacts/spirit.jpg",
+      "thumbnailPath": "/images/artifacts/spirit.jpg",
+      "photoCredits": "NASA / JPL-Caltech / Cornell"
+    }
+  },
+  {
+    "artifactId": "opportunity-mer-b",
+    "name": "Opportunity (MER-B)",
+    "missionId": "mer-b",
+    "missionName": "Mars Exploration Rover B",
+    "missionNssdcaId": "2003-032A",
+    "equipmentNssdcaId": "2003-032A",
+    "nssdcaClarification": "2003-032A is the official NSSDCA catalog identifier for the MER-B spacecraft and rover Opportunity.",
+    "destination": "Mars",
+    "targetBody": "Mars",
+    "operationalStatus": "mission_concluded",
+    "statusLabel": "Mission Concluded / Resting in Perseverance Valley",
+    "missionEndReason": "A global planet-encircling dust storm in June 2018 (Sol 5111) increased atmospheric opacity to approximately τ = 10.8, preventing solar array battery charging below operational survival levels. Last communication was received on June 10, 2018; NASA formally concluded the mission on February 13, 2019.",
+    "launchDate": "2003-07-07",
+    "landingDate": "2004-01-25",
+    "endOfMissionDate": "2019-02-13",
+    "lastContactDate": "2018-06-10",
+    "locationType": "final_resting_location",
+    "coordinates": {
+      "latitude": -1.9462,
+      "longitude": 354.4734,
+      "semanticLabel": "Final Resting Location in Perseverance Valley (Endeavour Crater Rim)",
+      "landingSiteName": "Perseverance Valley, Endeavour Rim (Landed at Eagle Crater)",
+      "coordinateString": "1.9462° S, 354.4734° E",
+      "bodyRadiusKm": 3389.5,
+      "derivationSource": "NASA JPL MER-B Localization Network & MRO HiRISE Orbital Imaging (ESP_058092_1780)"
+    },
+    "specs": {
+      "massKg": 185,
+      "dimensionsMeters": "1.5m × 2.3m × 1.6m",
+      "powerSource": "Solar Arrays",
+      "designedLifespanDays": 90,
+      "actualLifespanDays": 5250,
+      "distanceTraveledKm": 45.16
+    },
+    "instruments": [
+      {
+        "name": "Microscopic Imager",
+        "acronym": "MI",
+        "purpose": "Extreme close-up photography of rock and soil textures at 30-micron resolution",
+        "keyFinding": "Identified spherical hematite-rich concretions ('blueberries'), providing evidence of mineral precipitation from ancient groundwater"
+      },
+      {
+        "name": "Alpha Particle X-Ray Spectrometer",
+        "acronym": "APXS",
+        "purpose": "In-situ elemental chemistry analysis",
+        "keyFinding": "Found high concentrations of sulfur and jarosite throughout the sedimentary outcrop at Eagle Crater"
+      },
+      {
+        "name": "Rock Abrasion Tool",
+        "acronym": "RAT",
+        "purpose": "Diamond-tipped grinding wheel to remove weathered rinds from target rocks",
+        "keyFinding": "Ground into dozens of outcrops across Eagle, Endurance, Victoria, and Endeavour craters"
+      }
+    ],
+    "summary": "The marathon rover that operated for nearly 15 years, covered 45.16 kilometers, and uncovered clear mineralogical evidence of past liquid water and acidic groundwater alteration on Mars.",
+    "documentaryNarrative": "Hitting a 'hole-in-one' by rolling into Eagle Crater on January 25, 2004, Opportunity was designed to drive 600 meters over 90 sols. Instead, it explored the craters of Meridiani for nearly 15 years, surviving wheel motor failures, flash memory corruption, and freezing winters, driven by cleanings from Martian dust devils.",
+    "scientificLegacy": "Discovered diagnostic mineralogical evidence of past liquid water and acidic groundwater alteration (jarosite and hematite spherules) and logged the longest driving distance of any off-world vehicle in history (45.16 km).",
+    "finalMomentsStory": "In June 2018, a catastrophic global dust storm blotted out the sun over Perseverance Valley, raising atmospheric opacity to approximately τ = 10.8 and cutting solar power below operational survival levels. The final carrier signal was received on June 10, 2018 (Sol 5111). After over 1,000 recovery commands were beamed to Opportunity over eight months, NASA formally concluded the mission on February 13, 2019.",
+    "currentCondition": "Standing on the rocky slopes of Perseverance Valley overlooking Endeavour Crater. Dust-obscured solar panels and unpowered electronic systems exposed to thin CO2 atmosphere and diurnal temperature cycling. Imaged from Mars orbit by MRO HiRISE.",
+    "historicalTransmissions": [
+      {
+        "timestampUtc": "2018-06-10T17:23:00Z",
+        "sol": 5111,
+        "sourceType": "telemetry_log",
+        "content": "Sol 5111 (June 10, 2018): Last recorded carrier signal received by Deep Space Network Canberra station during global dust storm (optical depth approximately τ = 10.8). Telemetry confirmed solar array power dropped to approximately 22 watt-hours.",
+        "speakerOrTransmitter": "NASA JPL Opportunity Mission Operations Engineering Log",
+        "citationUrl": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-032A",
+        "historicalContext": "Final engineering telemetry session recording the arrival of the planet-encircling dust storm over Perseverance Valley."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NSSDCA Master Catalog: Opportunity (MER-B)",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2003-032A",
+        "sourceRepository": "NSSDCA Master Catalog",
+        "supportedClaims": [
+          "Landing date January 25, 2004",
+          "Final contact June 10, 2018",
+          "Formal conclusion February 13, 2019",
+          "Coordinates -1.9462° S, 354.4734° E"
+        ]
+      },
+      {
+        "title": "NASA JPL Opportunity Press Release 2019-022",
+        "url": "https://www.jpl.nasa.gov/news/nasas-record-setting-opportunity-rover-mission-on-mars-comes-to-end",
+        "sourceRepository": "JPL Mission Documentation",
+        "supportedClaims": [
+          "45.16 km marathon driving distance",
+          "Atmospheric tau 10.8 measurement",
+          "Over 1,000 recovery commands"
+        ]
+      }
+    ],
+    "media": {
+      "fallbackImagePath": "/images/artifacts/opportunity.jpg",
+      "thumbnailPath": "/images/artifacts/opportunity.jpg",
+      "photoCredits": "NASA / JPL-Caltech / Cornell"
+    }
+  },
+  {
+    "artifactId": "ingenuity-mars2020",
+    "name": "Ingenuity (Mars Helicopter)",
+    "missionId": "mars-2020",
+    "missionName": "Mars 2020 / Perseverance",
+    "missionNssdcaId": "2020-052A",
+    "equipmentNssdcaId": null,
+    "nssdcaClarification": "2020-052A designates the Mars 2020 mission (Perseverance rover and Ingenuity helicopter). Ingenuity was attached to the rover belly and does not possess an independent COSPAR/NSSDCA identifier.",
+    "destination": "Mars",
+    "targetBody": "Mars",
+    "operationalStatus": "mission_concluded",
+    "statusLabel": "Flight Mission Concluded at Valinor Hills",
+    "missionEndReason": "During landing on Flight 72 over bland sand dunes on January 18, 2024, the rotor blades sustained tip fractures upon surface impact, permanently concluding flight capability. The mission was formally concluded by NASA on January 25, 2024.",
+    "launchDate": "2020-07-30",
+    "landingDate": "2021-02-18",
+    "endOfMissionDate": "2024-01-25",
+    "lastContactDate": "2024-04-16",
+    "locationType": "final_resting_location",
+    "coordinates": {
+      "latitude": 18.4447,
+      "longitude": 77.4508,
+      "semanticLabel": "Final Touchdown Site at Valinor Hills (Airfield Chi)",
+      "landingSiteName": "Jezero Crater (Valinor Hills)",
+      "coordinateString": "18.4447° N, 77.4508° E",
+      "bodyRadiusKm": 3389.5,
+      "derivationSource": "NASA JPL Ingenuity Flight Log (Airfield Chi, Flight 72 Landing Location)"
+    },
+    "specs": {
+      "massKg": 1.8,
+      "dimensionsMeters": "0.49m height, 1.2m rotor diameter",
+      "powerSource": "Solar Arrays",
+      "designedLifespanDays": 30,
+      "actualLifespanDays": 1000,
+      "distanceTraveledKm": 17.0
+    },
+    "instruments": [
+      {
+        "name": "Color Terrain Camera",
+        "acronym": "RTE",
+        "purpose": "High-resolution color aerial reconnaissance of terrain and rover route planning",
+        "keyFinding": "Scouted ancient river delta slopes and boulder fields ahead of the Perseverance rover"
+      },
+      {
+        "name": "Navigation Camera",
+        "acronym": "Navcam",
+        "purpose": "Downward-pointing high-speed monochrome camera tracking surface feature optical flow",
+        "keyFinding": "Provided autonomous navigation telemetry across featureless sand ripples"
+      }
+    ],
+    "summary": "Humanity's first powered, controlled flight on another planet: designed for 5 technology demonstration hops, completed 72 flights across Mars.",
+    "documentaryNarrative": "Weighing just 1.8 kilograms with counter-rotating carbon-fiber blades spinning at 2,400 RPM, Ingenuity made aviation history on April 19, 2021, proving aerodynamic lift was possible in an atmosphere less than 1% as dense as Earth's. It evolved from a 30-day technology demonstration into Perseverance's trusted aerial scout.",
+    "scientificLegacy": "Proved the viability of aerial exploration on Mars, flying 33 times farther and logging 14 times more flight time than originally planned (72 flights, 128.8 minutes aloft, 17.0 km traversed).",
+    "finalMomentsStory": "During Flight 72 on January 18, 2024, Ingenuity executed a brief vertical test flight over flat, featureless sand ripples in Jezero Crater. Autonomous navigation issues led to a hard landing, causing rotor blade tip damage. NASA officially concluded the flight mission on January 25, 2024.",
+    "currentCondition": "Resting upright on the sand ripples of Valinor Hills (Airfield Chi). Perseverance Mastcam-Z imaging confirmed damage to the tips of multiple composite rotor blades, preventing aerodynamic flight capability. Avionics and instruments remain intact on the surface.",
+    "historicalTransmissions": [
+      {
+        "timestampUtc": "2024-01-25T19:00:00Z",
+        "sourceType": "mission_report",
+        "content": "Ingenuity has completely shattered our paradigms of what was possible in planetary exploration. What started as a technology demonstration to prove powered flight in Mars' thin atmosphere achieved 72 flights, operating for almost a thousand sols.",
+        "speakerOrTransmitter": "Teddy Tzanetos (Ingenuity Project Manager, NASA JPL)",
+        "citationUrl": "https://www.jpl.nasa.gov/news/after-72-flights-us-mars-helicopter-mission-concludes",
+        "historicalContext": "Verbatim mission conclusion statement delivered during the formal NASA JPL briefing following Flight 72 rotor tip fracture analysis."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NSSDCA Master Catalog: Mars 2020 Mission",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2020-052A",
+        "sourceRepository": "NSSDCA Master Catalog",
+        "supportedClaims": [
+          "Mission identifier 2020-052A",
+          "Landing date February 18, 2021 in Jezero Crater"
+        ]
+      },
+      {
+        "title": "NASA JPL Press Release: After 72 Flights, US Mars Helicopter Mission Concludes",
+        "url": "https://www.jpl.nasa.gov/news/after-72-flights-us-mars-helicopter-mission-concludes",
+        "sourceRepository": "JPL Mission Documentation",
+        "supportedClaims": [
+          "72 completed flights",
+          "Final flight date January 18, 2024",
+          "Rotor blade tip damage",
+          "17.0 km flight distance"
+        ]
+      }
+    ],
+    "media": {
+      "fallbackImagePath": "/images/artifacts/ingenuity.jpg",
+      "thumbnailPath": "/images/artifacts/ingenuity.jpg",
+      "photoCredits": "NASA / JPL-Caltech"
+    }
+  },
+  {
+    "artifactId": "dawn-spacecraft",
+    "name": "Dawn",
+    "missionId": "dawn-discovery",
+    "missionName": "Dawn Discovery Mission",
+    "missionNssdcaId": "2007-043A",
+    "equipmentNssdcaId": "2007-043A",
+    "nssdcaClarification": "2007-043A is the official NSSDCA catalog identifier for the Dawn spacecraft.",
+    "destination": "Beyond Mars",
+    "targetBody": "Ceres",
+    "operationalStatus": "silent_orbit",
+    "statusLabel": "Long-Term Stable Orbit (Ceres Planetary Protection)",
+    "missionEndReason": "Depletion of hydrazine attitude-control propellant on October 31, 2018, resulting in loss of pointing capability to Earth and the Sun. The spacecraft remains in a long-term stable orbit around Ceres governed by NASA planetary protection requirements, which mandate orbital stability without impact for at least 20 years, with orbital calculations providing greater than 99% confidence of remaining in orbit for at least 50 years.",
+    "launchDate": "2007-09-27",
+    "landingDate": "2018-11-01",
+    "endOfMissionDate": "2018-11-01",
+    "lastContactDate": "2018-10-31",
+    "locationType": "orbital_track",
+    "coordinates": {
+      "latitude": null,
+      "longitude": null,
+      "semanticLabel": "Stable Planetary Protection Parking Orbit around Dwarf Planet Ceres",
+      "landingSiteName": "Ceres Orbital Space (No Surface Touchdown)",
+      "coordinateString": "Gravitational Polar Orbit // Altitude ~35 km to ~4,000 km",
+      "bodyRadiusKm": 469.73,
+      "derivationSource": "NASA JPL Dawn Navigation Team Orbital Stability Analysis (Planetary Protection Parking Orbit)"
+    },
+    "specs": {
+      "massKg": 1217,
+      "dimensionsMeters": "1.64m × 1.27m core, 19.7m solar array span",
+      "powerSource": "Ion Propulsion Hybrid",
+      "designedLifespanDays": 3000,
+      "actualLifespanDays": 4052
+    },
+    "instruments": [
+      {
+        "name": "Framing Camera",
+        "acronym": "FC",
+        "purpose": "High-resolution global geological and topographical mapping of Vesta and Ceres",
+        "keyFinding": "Mapped Occator Crater's reflective bright spots (Cerealia Facula), revealed as sodium carbonate salts"
+      },
+      {
+        "name": "Visible and Infrared Spectrometer",
+        "acronym": "VIR",
+        "purpose": "Surface mineralogy and chemical composition mapping",
+        "keyFinding": "Detected water ice and organic compounds on the surface of dwarf planet Ceres"
+      },
+      {
+        "name": "Gamma Ray and Neutron Detector",
+        "acronym": "GRaND",
+        "purpose": "Elemental abundance mapping to 1 meter depth",
+        "keyFinding": "Confirmed that Ceres's subsurface contains up to 10% water ice by weight"
+      }
+    ],
+    "summary": "The first spacecraft to orbit two separate extraterrestrial worlds (Vesta and Ceres), now in a long-term stable orbit around Ceres under NASA planetary protection requirements.",
+    "documentaryNarrative": "Powered by cutting-edge xenon ion thrusters, Dawn journeyed through the Main Asteroid Belt to explore the two most massive surviving protoplanets: rocky giant Vesta and icy dwarf planet Ceres. It revealed Ceres not as an inert rock, but as an active, briny world with a subterranean ocean legacy.",
+    "scientificLegacy": "Discovered that Ceres was an ocean world with cryovolcanism (Ahuna Mons), fundamentally shifting the boundary of where liquid water and organic building blocks can persist in the solar system.",
+    "finalMomentsStory": "On October 31, 2018, Dawn exhausted its hydrazine attitude-control propellant, losing its ability to orient its solar panels to the Sun or its antenna to Earth. The spacecraft remains in a long-term stable orbit around Ceres under NASA planetary protection requirements, which mandate at least 20 years without impact. Orbital calculations demonstrate with greater than 99% confidence that the spacecraft will remain in orbit for at least 50 years, though this calculation is an estimate rather than a guarantee.",
+    "currentCondition": "In an unpowered, long-term stable orbit around Ceres. Cold, inert, and devoid of hydrazine attitude-control propellant. Governed by NASA planetary protection requirements requiring at least 20 years of impact-free orbit; orbital analyses indicate with greater than 99% confidence that it will remain in orbit for at least 50 years.",
+    "historicalTransmissions": [
+      {
+        "timestampUtc": "2018-11-01T20:00:00Z",
+        "sourceType": "telemetry_log",
+        "content": "November 1, 2018: Deep Space Network tracking passes completed without carrier signal following missed communications on October 31. Telemetry analysis confirms attitude-control hydrazine exhaustion. Spacecraft remains in a long-term stable orbit around Ceres meeting NASA planetary protection requirements (mandated >= 20 years; estimated with >99% confidence to remain in orbit >= 50 years).",
+        "speakerOrTransmitter": "NASA JPL Dawn Flight Team Mission Conclusion Statement",
+        "citationUrl": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-043A",
+        "historicalContext": "Formal mission retirement notice recording the depletion of hydrazine attitude-control propellant."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NSSDCA Master Catalog: Dawn",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2007-043A",
+        "sourceRepository": "NSSDCA Master Catalog",
+        "supportedClaims": [
+          "Launch date September 27, 2007",
+          "NSSDCA ID 2007-043A",
+          "Mission conclusion November 1, 2018"
+        ]
+      },
+      {
+        "title": "NASA JPL Dawn Mission Archive & Planetary Protection Review",
+        "url": "https://www.jpl.nasa.gov/missions/dawn",
+        "sourceRepository": "JPL Mission Documentation",
+        "supportedClaims": [
+          "Planetary protection requirement of at least 20 years without impact",
+          "Greater than 99% confidence orbit lasts at least 50 years",
+          "Hydrazine depletion cause of mission end"
+        ]
+      }
+    ],
+    "media": {
+      "fallbackImagePath": "/images/artifacts/dawn.jpg",
+      "thumbnailPath": "/images/artifacts/dawn.jpg",
+      "photoCredits": "NASA / JPL-Caltech / UCLA / MPS / DLR / IDA"
+    }
+  },
+  {
+    "artifactId": "near-shoemaker",
+    "name": "NEAR Shoemaker",
+    "missionId": "near-discovery",
+    "missionName": "Near Earth Asteroid Rendezvous",
+    "missionNssdcaId": "1996-008A",
+    "equipmentNssdcaId": "1996-008A",
+    "nssdcaClarification": "1996-008A is the official NSSDCA catalog identifier for NEAR Shoemaker.",
+    "destination": "Beyond Mars",
+    "targetBody": "433 Eros",
+    "operationalStatus": "decommissioned",
+    "statusLabel": "Landed on Asteroid 433 Eros",
+    "missionEndReason": "The spacecraft continued transmitting after its February 12, 2001 landing, conducting surface operations for about two weeks. Last contact occurred on February 28, 2001; NASA attributes the end of contact to extreme cold on the asteroid surface.",
+    "launchDate": "1996-02-17",
+    "landingDate": "2001-02-12",
+    "endOfMissionDate": "2001-02-28",
+    "lastContactDate": "2001-02-28",
+    "locationType": "surface_landing_site",
+    "coordinates": {
+      "latitude": -35.7,
+      "longitude": -279.5,
+      "semanticLabel": "Controlled Touchdown Site in Himeros Depression (433 Eros Body-Fixed Cartographic System)",
+      "landingSiteName": "Himeros Depression, Southern Hemisphere of 433 Eros",
+      "coordinateString": "35.7° S, 279.5° W (Eros-centric Body-Fixed System)",
+      "bodyRadiusKm": 8.4,
+      "derivationSource": "Johns Hopkins University Applied Physics Laboratory (JHU-APL) / Cheng et al. 2002 Science Report (IAU 433 Eros body-fixed reference frame: 35.7° S, 279.5° W)"
+    },
+    "specs": {
+      "massKg": 805,
+      "dimensionsMeters": "1.7m × 1.7m core, four solar panels",
+      "powerSource": "Solar Arrays",
+      "designedLifespanDays": 365,
+      "actualLifespanDays": 1838
+    },
+    "instruments": [
+      {
+        "name": "X-Ray / Gamma-Ray Spectrometer",
+        "acronym": "XGRS",
+        "purpose": "Elemental composition measurement of magnesium, silicon, iron, and potassium",
+        "keyFinding": "Collected seven days of dedicated surface gamma-ray measurements on Eros, detecting clear elemental composition signatures"
+      },
+      {
+        "name": "Multi-Spectral Imager",
+        "acronym": "MSI",
+        "purpose": "High-resolution framing camera for topographical and crater morphology analysis",
+        "keyFinding": "Captured images during descent resolving surface features down to centimeters across"
+      },
+      {
+        "name": "Laser Rangefinder",
+        "acronym": "NLR",
+        "purpose": "High-precision topographic lidar profiling of the peanut-shaped asteroid",
+        "keyFinding": "Constructed the first complete shape and gravitational model of a near-Earth asteroid"
+      }
+    ],
+    "summary": "The first spacecraft to orbit and softly touch down on an asteroid, operating on the surface of 433 Eros for about two weeks until contact ended due to extreme cold on February 28, 2001.",
+    "documentaryNarrative": "After completing a full year of orbital reconnaissance around asteroid 433 Eros, NEAR Shoemaker executed a succession of braking burns on February 12, 2001 to achieve humanity's first soft touchdown on an asteroid at 1.5 to 1.8 m/s. Designed purely as an orbital craft, it survived the impact intact and returned scientific telemetry and gamma-ray spectra from the surface for about two weeks.",
+    "scientificLegacy": "Achieved humanity's first landing on an asteroid, returning the first surface gamma-ray spectrometry from a small body. The data showed elemental abundance ratios consistent with ordinary chondritic meteorites, though the compositional link was not definitive.",
+    "finalMomentsStory": "Following its soft landing on February 12, 2001, NEAR Shoemaker continued transmitting from the surface of asteroid 433 Eros for about two weeks, returning seven days of dedicated surface gamma-ray spectrometer measurements. The final signal was acquired on February 28, 2001; NASA attributes the end of contact to extreme cold on the asteroid surface.",
+    "currentCondition": "Resting directly on the regolith of asteroid 433 Eros within the Himeros depression. Unpowered and silent in the microgravity vacuum environment; experiencing solar heating and cosmic weathering in a 1.13 to 1.78 AU heliocentric orbit.",
+    "historicalTransmissions": [
+      {
+        "timestampUtc": "2001-02-28T00:00:00Z",
+        "sourceType": "telemetry_log",
+        "content": "February 28, 2001 (00:00 UTC): Final carrier signal acquisition confirmed by Deep Space Network station following about two weeks of post-landing surface operations and seven days of surface gamma-ray spectrometer measurements on asteroid 433 Eros; NASA attributes the subsequent loss of contact to extreme cold.",
+        "speakerOrTransmitter": "JHU-APL NEAR Shoemaker Operations / NASA NSSDCA",
+        "citationUrl": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1996-008A",
+        "historicalContext": "Final operational log recording the acquisition of the last carrier signal from NEAR Shoemaker on the surface of 433 Eros before contact was lost due to extreme cold."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NSSDCA Master Catalog: NEAR Shoemaker",
+        "url": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=1996-008A",
+        "sourceRepository": "NSSDCA Master Catalog",
+        "supportedClaims": [
+          "Landing date February 12, 2001",
+          "Final contact February 28, 2001",
+          "Seven days of surface gamma-ray measurements specifically reported",
+          "Touchdown coordinates 35.0° S, 279.0° W"
+        ]
+      },
+      {
+        "title": "Johns Hopkins APL NEAR Mission Archive",
+        "url": "http://near.jhuapl.edu/",
+        "sourceRepository": "JPL Mission Documentation",
+        "supportedClaims": [
+          "Two weeks of surface data collection",
+          "XGRS elemental composition results"
+        ]
+      }
+    ],
+    "media": {
+      "fallbackImagePath": "/images/artifacts/near-shoemaker.jpg",
+      "thumbnailPath": "/images/artifacts/near-shoemaker.jpg",
+      "photoCredits": "NASA / JHU-APL"
+    }
+  }
+]
