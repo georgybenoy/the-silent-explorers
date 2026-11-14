@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigation } from '../../context/NavigationContext';
 import { ChapterProgress } from './ChapterProgress';
-import { DestinationFilter } from './DestinationFilter';
 import citationsData from '../../data/citations.json';
 
 export const Navbar: React.FC = () => {
@@ -83,17 +82,12 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Center: Chapter Progress Indicator (Desktop / Tablet) */}
-        <div className="hidden md:flex items-center justify-center flex-1 max-w-md mx-auto">
+        <div className="hidden md:flex items-center justify-center flex-1 max-w-lg mx-auto">
           <ChapterProgress />
         </div>
 
         {/* Right: Actions & Mobile Hamburger */}
-        <div className="flex items-center space-x-3 text-xs font-mono shrink-0">
-          {/* Destination Selector (Desktop) */}
-          <div className="hidden lg:block">
-            <DestinationFilter showCounts={false} />
-          </div>
-
+        <div className="flex items-center space-x-2.5 sm:space-x-3 text-xs font-mono shrink-0">
           {/* Citations Drawer Trigger Button */}
           <button
             onClick={() => setIsCitationsOpen(!isCitationsOpen)}
