@@ -99,7 +99,7 @@ export function ChapterOneSilence() {
     <section
       id="chapter-1"
       ref={containerRef}
-      className="relative w-full min-h-screen bg-space-black text-stellar-white overflow-hidden select-none border-b border-white/10"
+      className="relative w-full min-h-screen bg-space-black text-stellar-white overflow-x-hidden overflow-y-auto select-none border-b border-white/10"
       aria-label="Chapter I: The Silence — Cinematic Space Prologue"
     >
       {/* Background Cosmic Starfield & Particle Atmosphere */}
@@ -158,19 +158,18 @@ export function ChapterOneSilence() {
         })}
       </div>
 
-      {/* Atmospheric Aerospace HUD Overlay */}
+      {/* Unified Natural-Flow Scene Container (Top HUD + Narrative + Bottom HUD) */}
       <SceneHUDOverlay
         scene={currentScene}
         totalScenes={totalScenes}
         currentSceneIndex={activeSceneIndex}
         onSelectScene={jumpToScene}
-      />
-
-      {/* Foreground Editorial Narrative Container */}
-      <div className="relative z-20 max-w-5xl mx-auto min-h-screen flex flex-col justify-center px-6 sm:px-12 py-24 pointer-events-none">
-        <div className="max-w-3xl pointer-events-auto space-y-6">
+        onPrevScene={handlePrevScene}
+        onNextScene={handleNextScene}
+      >
+        <div className="space-y-4 sm:space-y-5">
           {/* Scene Header Telemetry Pill */}
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded bg-black/60 border border-white/10 backdrop-blur-md">
+          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded bg-black/60 border border-white/10 backdrop-blur-md w-fit">
             <span className="w-1.5 h-1.5 rounded-full bg-stellar-gold animate-pulse" />
             <span className="text-xs font-mono tracking-widest text-stellar-gold uppercase">
               {currentScene.sceneTag}
@@ -184,7 +183,7 @@ export function ChapterOneSilence() {
           {/* Primary Scene Headings */}
           {activeSceneIndex === 6 ? (
             /* Scene 6: Monolithic Title Reveal */
-            <div className="space-y-4 pt-4">
+            <div className="space-y-3 sm:space-y-4 pt-2">
               <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-stellar-white uppercase leading-none drop-shadow-2xl">
                 THE SILENT EXPLORERS
               </h1>
@@ -193,12 +192,12 @@ export function ChapterOneSilence() {
               </p>
             </div>
           ) : (
-            <div className="space-y-2">
-              <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-stellar-white leading-tight">
+            <div className="space-y-1.5 sm:space-y-2">
+              <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-stellar-white leading-tight">
                 {currentScene.primaryHeading}
               </h2>
               {currentScene.sceneSubtitle && (
-                <p className="text-base sm:text-lg text-stellar-gold font-mono tracking-wide">
+                <p className="text-sm sm:text-base text-stellar-gold font-mono tracking-wide">
                   {currentScene.sceneSubtitle}
                 </p>
               )}
@@ -206,7 +205,7 @@ export function ChapterOneSilence() {
           )}
 
           {/* Documentary Narrative Lines */}
-          <div className="space-y-4 text-base sm:text-lg text-stellar-gray font-normal leading-relaxed max-w-2xl">
+          <div className="space-y-3 sm:space-y-4 text-sm sm:text-base md:text-lg text-stellar-gray font-normal leading-relaxed max-w-2xl">
             {currentScene.narrativeLines.map((line, idx) => (
               <p
                 key={idx}
@@ -219,18 +218,18 @@ export function ChapterOneSilence() {
 
           {/* Official NASA Source Attribution Badge */}
           {currentScene.nasaAttribution && (
-            <div className="pt-2">
+            <div className="pt-1">
               <AttributionBadge attribution={currentScene.nasaAttribution} />
             </div>
           )}
 
           {/* Scene 7: Interactive Journey Invitation CTAs */}
           {activeSceneIndex === 7 && (
-            <div className="pt-6 flex flex-wrap items-center gap-4 animate-fade-in">
+            <div className="pt-4 flex flex-wrap items-center gap-3 sm:gap-4 animate-fade-in">
               <button
                 type="button"
                 onClick={() => scrollToChapter(2)}
-                className="px-6 py-3.5 rounded-lg bg-stellar-gold text-space-black font-mono text-xs font-bold uppercase tracking-wider hover:bg-stellar-amber transition-all duration-200 shadow-[0_0_25px_rgba(232,154,60,0.4)] flex items-center space-x-2 focus-visible:ring-2 focus-visible:ring-white"
+                className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg bg-stellar-gold text-space-black font-mono text-xs font-bold uppercase tracking-wider hover:bg-stellar-amber transition-all duration-200 shadow-[0_0_25px_rgba(232,154,60,0.4)] flex items-center space-x-2 focus-visible:ring-2 focus-visible:ring-white"
               >
                 <span>ENTER THE EXPEDITION RECORD</span>
                 <span className="text-sm font-sans">→</span>
@@ -239,7 +238,7 @@ export function ChapterOneSilence() {
               <button
                 type="button"
                 onClick={() => scrollToChapter(4)}
-                className="px-5 py-3.5 rounded-lg bg-white/5 border border-white/15 text-stellar-white font-mono text-xs font-medium uppercase tracking-wider hover:bg-white/10 hover:border-stellar-gold/40 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-stellar-gold"
+                className="px-4 sm:px-5 py-3 sm:py-3.5 rounded-lg bg-white/5 border border-white/15 text-stellar-white font-mono text-xs font-medium uppercase tracking-wider hover:bg-white/10 hover:border-stellar-gold/40 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-stellar-gold"
               >
                 <span>EXPLORE THE 8 EXPLORERS</span>
               </button>
@@ -247,49 +246,14 @@ export function ChapterOneSilence() {
               <button
                 type="button"
                 onClick={() => jumpToScene(1)}
-                className="px-4 py-3.5 rounded-lg text-zinc-400 hover:text-stellar-white font-mono text-xs uppercase tracking-wider transition-colors focus-visible:ring-1 focus-visible:ring-stellar-gold"
+                className="px-3 sm:px-4 py-3 sm:py-3.5 rounded-lg text-zinc-400 hover:text-stellar-white font-mono text-xs uppercase tracking-wider transition-colors focus-visible:ring-1 focus-visible:ring-stellar-gold"
               >
                 <span>↺ REPLAY PROLOGUE</span>
               </button>
             </div>
           )}
-
-          {/* Stepper Controls for Manual Navigation / Accessibility */}
-          <div className="pt-4 flex items-center space-x-4">
-            <button
-              type="button"
-              onClick={handlePrevScene}
-              disabled={activeSceneIndex === 1}
-              className={`px-3 py-1.5 rounded font-mono text-xs uppercase tracking-wider transition-colors flex items-center space-x-1 border focus-visible:ring-1 focus-visible:ring-stellar-gold ${
-                activeSceneIndex === 1
-                  ? 'border-white/5 text-zinc-600 cursor-not-allowed'
-                  : 'border-white/10 text-zinc-400 hover:text-stellar-white hover:border-white/30'
-              }`}
-              aria-label="Previous Prologue Scene"
-            >
-              <span>← PREV SCENE</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={handleNextScene}
-              disabled={activeSceneIndex === totalScenes}
-              className={`px-3 py-1.5 rounded font-mono text-xs uppercase tracking-wider transition-colors flex items-center space-x-1 border focus-visible:ring-1 focus-visible:ring-stellar-gold ${
-                activeSceneIndex === totalScenes
-                  ? 'border-white/5 text-zinc-600 cursor-not-allowed'
-                  : 'border-stellar-gold/40 text-stellar-gold hover:bg-stellar-gold/10'
-              }`}
-              aria-label="Next Prologue Scene"
-            >
-              <span>NEXT SCENE →</span>
-            </button>
-
-            <span className="text-[11px] font-mono text-zinc-500">
-              [ SCENE {activeSceneIndex} / {totalScenes} ]
-            </span>
-          </div>
         </div>
-      </div>
+      </SceneHUDOverlay>
     </section>
   );
 }
