@@ -338,7 +338,7 @@ export const ASSET_INVENTORY: Record<string, AssetRecord> = {
       {
         id: 'high-gain-dish',
         label: '1.83-Meter Fixed High-Gain Antenna',
-        description: 'Transmitted X-band carrier down to DSN dishes for 16 days from the asteroid surface.',
+        description: 'Transmitted X-band carrier down to DSN dishes for about two weeks from the asteroid surface.',
         position: [0, 0.65, 0],
       },
       {

@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useCallback, useEffect, use
 import type { Destination, Artifact } from '../types/artifact';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import { ambientAudio, type AudioState } from '../services/ambientAudio';
-import { matchesDestination } from '../utils/destination';
+import { matchesDestination, normalizeDestination } from '../utils/destination';
 import artifactsData from '../data/artifacts.json';
 
 interface NavigationContextType {
@@ -105,6 +105,11 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
   const selectArtifact = useCallback((artifactId: string | null) => {
     setSelectedArtifactId(artifactId);
     if (artifactId) {
+      const all = artifactsData as Artifact[];
+      const target = all.find((a) => a.artifactId === artifactId);
+      if (target && normalizeDestination(activeDestination) !== 'all' && !matchesDestination(target.destination, activeDestination)) {
+        setActiveDestinationState(target.destination as Destination);
+      }
       const artifactElement = document.getElementById(`artifact-${artifactId}`);
       if (artifactElement) {
         artifactElement.scrollIntoView({
@@ -113,7 +118,7 @@ export function NavigationProvider({ children }: { children: React.ReactNode }) 
         });
       }
     }
-  }, [isReducedMotion]);
+  }, [isReducedMotion, activeDestination]);
 
   // Close mobile menu on desktop resize
   useEffect(() => {

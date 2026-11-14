@@ -22,14 +22,11 @@ export function ArtifactMuseum() {
     return allArtifacts.filter((a) => matchesDestination(a.destination, activeDestination));
   }, [allArtifacts, activeDestination]);
 
-  // Find currently selected artifact for modal (ensuring it is not excluded by current destination)
+  // Find currently selected artifact for modal
   const selectedArtifact = useMemo(() => {
     if (!selectedArtifactId) return null;
-    const found = allArtifacts.find((a) => a.artifactId === selectedArtifactId);
-    if (!found) return null;
-    if (!matchesDestination(found.destination, activeDestination)) return null;
-    return found;
-  }, [allArtifacts, selectedArtifactId, activeDestination]);
+    return allArtifacts.find((a) => a.artifactId === selectedArtifactId) || null;
+  }, [allArtifacts, selectedArtifactId]);
 
   const destinationTabs: { id: Destination | 'All'; label: string; count: number }[] = [
     { id: 'All', label: 'ALL DESTINATIONS', count: allArtifacts.length },

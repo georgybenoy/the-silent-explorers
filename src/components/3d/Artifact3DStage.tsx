@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 import type { Artifact } from '../../types/artifact';
 import { ASSET_INVENTORY } from '../../data/assetsInventory';
@@ -350,16 +351,8 @@ function NEARShoemakerModel() {
 }
 
 function Explorer3DSwitch({ artifactId }: { artifactId: string }) {
-  const groupRef = useRef<THREE.Group>(null);
-
-  useFrame((_, delta) => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += delta * 0.15;
-    }
-  });
-
   return (
-    <group ref={groupRef}>
+    <group>
       {artifactId === 'apollo-17-lrv' && <Apollo17LRVModel />}
       {artifactId === 'apollo-15-alsep' && <Apollo15ALSEPModel />}
       {artifactId === 'sojourner-pathfinder' && <SojournerModel />}
@@ -375,6 +368,9 @@ function Explorer3DSwitch({ artifactId }: { artifactId: string }) {
 export function Artifact3DStage({ artifact }: Artifact3DStageProps) {
   const [viewMode, setViewMode] = useState<'3d' | 'photo'>('3d');
   const [activeAnnotationId, setActiveAnnotationId] = useState<string | null>(null);
+  const [isAutoRotating, setIsAutoRotating] = useState<boolean>(true);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const controlsRef = useRef<any>(null);
   const { isReducedMotion } = useNavigation();
   const { isWebGLSupported, is3DEnabled, qualityTier } = useWebGL();
 
@@ -382,6 +378,16 @@ export function Artifact3DStage({ artifact }: Artifact3DStageProps) {
 
   // Toggle fallback if WebGL unavailable or user disabled
   const show3D = isWebGLSupported && is3DEnabled && !isReducedMotion && viewMode === '3d';
+
+  const handleResetCamera = () => {
+    if (controlsRef.current) {
+      controlsRef.current.reset();
+    }
+  };
+
+  const activeAnnotation = activeAnnotationId
+    ? assetMeta.keyAnnotations.find((a) => a.id === activeAnnotationId)
+    : null;
 
   return (
     <div className="w-full space-y-3">
@@ -430,16 +436,61 @@ export function Artifact3DStage({ artifact }: Artifact3DStageProps) {
       {/* Main Exhibition Stage Viewport */}
       <div className="relative aspect-[21/11] sm:aspect-[21/9] w-full rounded-xl overflow-hidden bg-space-black border border-white/10 shadow-2xl flex items-center justify-center">
         {show3D ? (
-          <Canvas
-            camera={{ position: [0, 1.2, 3.2], fov: 42 }}
-            dpr={[1, qualityTier === 'high' ? 1.5 : 1]}
-            gl={{ alpha: true, antialias: qualityTier !== 'low' }}
-          >
-            <ambientLight intensity={0.25} />
-            <directionalLight position={[5, 4, 3]} intensity={2.2} color="#ffffff" castShadow />
-            <directionalLight position={[-4, 2, -2]} intensity={0.4} color="#93c5fd" />
-            <Explorer3DSwitch artifactId={artifact.artifactId} />
-          </Canvas>
+          <>
+            <Canvas
+              camera={{ position: [0, 1.2, 3.2], fov: 42 }}
+              dpr={[1, qualityTier === 'high' ? 1.5 : 1]}
+              gl={{ alpha: true, antialias: qualityTier !== 'low' }}
+            >
+              <ambientLight intensity={0.25} />
+              <directionalLight position={[5, 4, 3]} intensity={2.2} color="#ffffff" castShadow />
+              <directionalLight position={[-4, 2, -2]} intensity={0.4} color="#93c5fd" />
+              <Explorer3DSwitch artifactId={artifact.artifactId} />
+              <OrbitControls
+                ref={controlsRef}
+                enableZoom={true}
+                enablePan={false}
+                minDistance={1.6}
+                maxDistance={6.0}
+                autoRotate={isAutoRotating}
+                autoRotateSpeed={1.0}
+                enableDamping={true}
+                dampingFactor={0.05}
+              />
+            </Canvas>
+
+            {/* Interactive 3D Camera Controls Overlay */}
+            <div className="absolute top-3 right-3 flex items-center space-x-1.5 z-20 font-mono text-[10px]">
+              <button
+                type="button"
+                onClick={handleResetCamera}
+                className="px-2 py-1 rounded bg-black/80 hover:bg-black text-zinc-300 hover:text-white border border-white/20 backdrop-blur-md transition-colors focus-visible:ring-1 focus-visible:ring-stellar-gold cursor-pointer"
+                aria-label="Reset 3D camera orientation and zoom"
+                title="Reset camera view to default"
+              >
+                RESET CAMERA
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsAutoRotating(!isAutoRotating)}
+                className={`px-2 py-1 rounded border backdrop-blur-md transition-colors focus-visible:ring-1 focus-visible:ring-stellar-gold cursor-pointer ${
+                  isAutoRotating
+                    ? 'bg-stellar-gold/20 border-stellar-gold/50 text-stellar-gold'
+                    : 'bg-black/80 border-white/20 text-zinc-400 hover:text-white'
+                }`}
+                aria-pressed={isAutoRotating}
+                title="Toggle automatic model rotation"
+              >
+                {isAutoRotating ? 'ROTATION: ON' : 'ROTATION: PAUSED'}
+              </button>
+            </div>
+
+            {/* 3D Drag & Zoom Hint Overlay */}
+            <div className="absolute bottom-3 left-3 text-[10px] font-mono text-zinc-400 bg-black/75 backdrop-blur-md px-2.5 py-1 rounded border border-white/10 pointer-events-none z-10 flex items-center space-x-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-stellar-cyan animate-pulse" />
+              <span>DRAG TO ROTATE // WHEEL TO ZOOM</span>
+            </div>
+          </>
         ) : (
           /* Archival Photography Fallback */
           <div className="absolute inset-0">
@@ -462,6 +513,31 @@ export function Artifact3DStage({ artifact }: Artifact3DStageProps) {
         )}
       </div>
 
+      {/* Featured Annotation Details Card */}
+      {activeAnnotation && (
+        <div className="p-3.5 rounded-xl bg-stellar-gold/10 border border-stellar-gold/40 text-xs font-mono space-y-1.5 animate-fade-in">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <span className="w-2 h-2 rounded-full bg-stellar-gold animate-ping" />
+              <span className="text-stellar-gold font-bold uppercase tracking-wider">
+                HARDWARE INSPECTION: {activeAnnotation.label}
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={() => setActiveAnnotationId(null)}
+              className="text-zinc-400 hover:text-white text-[10px] px-2 py-0.5 rounded border border-white/10 hover:border-white/30"
+              aria-label="Dismiss active component callout"
+            >
+              CLOSE ✕
+            </button>
+          </div>
+          <p className="text-zinc-200 font-sans text-xs leading-relaxed">
+            {activeAnnotation.description}
+          </p>
+        </div>
+      )}
+
       {/* Interactive Component Annotation Hotspots */}
       <div className="space-y-1.5 font-mono text-xs">
         <div className="flex items-center justify-between text-[10px] text-zinc-500 uppercase tracking-widest">
@@ -477,11 +553,12 @@ export function Artifact3DStage({ artifact }: Artifact3DStageProps) {
                 key={anno.id}
                 type="button"
                 onClick={() => setActiveAnnotationId(isActive ? null : anno.id)}
-                className={`p-2.5 rounded-lg border text-left transition-all ${
+                className={`p-2.5 rounded-lg border text-left transition-all cursor-pointer ${
                   isActive
                     ? 'bg-stellar-gold/15 border-stellar-gold text-stellar-white shadow-md'
                     : 'bg-black/50 border-white/10 text-zinc-400 hover:text-stellar-white hover:border-white/25'
                 }`}
+                aria-pressed={isActive}
               >
                 <div className="flex items-center space-x-1.5 mb-1">
                   <span
