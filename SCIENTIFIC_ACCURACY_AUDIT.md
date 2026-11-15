@@ -58,11 +58,25 @@ Every factual statement, mission date, landing coordinate, distance metric, radi
 ### 8. NEAR Shoemaker
 * **Touchdown & Surface Operations**: Achieved humanity's first soft asteroid landing on February 12, 2001 on Asteroid 433 Eros. Conducted surface operations for **about two weeks**, returning seven days of dedicated surface gamma-ray spectrometer measurements.
 * **Final Contact**: Last signal acquired on February 28, 2001; NASA attributes the cessation of contact to extreme cold on the asteroid surface.
-* **Body-Fixed Coordinates**: `35.7° S, 279.5° W body-fixed` within the Himeros Depression, explicitly identifying the IAU 433 Eros body-fixed reference frame.
+* **Body-Fixed Coordinate Reference Frame & Longitude Convention**:
+  - **Rendered Coordinate**: `35.7° S, 279.5° W body-fixed` within the Himeros Depression.
+  - **Reference Frame**: IAU/IAG Working Group on Cartographic Coordinates and Rotational Elements (Seidelmann et al. 2002; Cheng et al. 2002 Science report; JHU-APL NEAR Operations).
+  - **Longitude Convention**: Asteroid 433 Eros has direct (prograde) rotation with a spin period of ~5.270 hours. Under IAU cartographic conventions for direct-rotating small bodies, planetocentric longitude is defined as positive to the west (0° to 360° W). Consequently, `279.5° W` corresponds directly to `80.5° E` in a right-handed positive-east system ($360^\circ - 279.5^\circ = 80.5^\circ\text{ E}$).
+  - **Location Type**: Final resting location / surface touchdown site on asteroid regolith.
+  - **Precision Justification**: The 0.1° precision (~15 meters on Eros, which has a mean radius of 8.4 km and mean circumference of ~52.8 km; $52.8\text{ km} / 360^\circ \approx 147\text{ m/deg}$; $0.1^\circ \approx 14.7\text{ m}$) is fully justified by optical landmark tracking of descent imagery into Himeros.
 
 ---
 
-## 3. Telemetry Visualizer Authenticity
+## 3. Comprehensive Ground Truth Coordinate Matrix
+
+| Spacecraft / Site | Coordinate Value | Reference Frame | Authoritative Source | Site Type | Precision Justification |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Apollo 17 LRV** | `20.1896° N, 30.7769° E` | Mean Earth / Polar Axis (ME) Lunar Frame | LROC NAC Photogrammetry / Wagner et al. (2017) Table 2; ALSJ | Equipment Parking Site (Final resting site, 158 m ENE of Challenger LM) | 4 decimal places ($\approx 3.0\text{ m}$ on the Moon). Justified by 0.5 m/pixel LROC NAC orthophotos resolving the 3.1 m × 2.3 m rover frame. |
+| **Apollo 15 ALSEP** | `26.13406° N, 3.62991° E` | Mean Earth / Polar Axis (ME) Lunar Frame | LROC NAC Photogrammetric Triangulation / Davies & Colvin (2000); ALSJ | Surface Scientific Equipment Installation (Central Station, ~110 m WNW of Falcon LM) | 5 decimal places ($\approx 0.30\text{ m}$ on the Moon). Justified by sub-meter geodetic control from LROC NAC photogrammetric networks. |
+| **Apollo 15 LRRR** | `26.13341° N, 3.62850° E` | Mean Earth / Polar Axis (ME) Lunar Frame & LLR Dynamical Ephemeris (DE421/DE440) | LROC NAC Photogrammetry; Apache Point Observatory (APOLLO); NASA SP-289 | Independent Unpowered Surface Optical Reflector (~40 m W of ALSEP) | 5 decimal places ($\approx 0.30\text{ m}$ on the Moon). Justified by laser rangefinding millimeter-precision relative station ties. |
+| **Spirit (MER-A)** | `14.6083° S, 175.5262° E` | Mars IAU 2000 Planetocentric Frame | NASA JPL MER Localization Network; MRO HiRISE (ESP_016180_1655); Arvidson et al. (2010) | Final Resting Location (Immobilized in sulfate sand trap at Troy, west of Home Plate) | 4 decimal places ($\approx 5.9\text{ m}$ on Mars). Justified by 0.25 m/pixel MRO HiRISE orbital imagery resolving the 1.5 m rover chassis. |
+| **Opportunity (MER-B)** | `1.9462° S, 354.4734° E` | Mars IAU 2000 Planetocentric Frame | NASA JPL MER Localization Network; MRO HiRISE (ESP_058092_1780) | Final Resting Location (Western rim of Endeavour Crater, Perseverance Valley) | 4 decimal places ($\approx 5.9\text{ m}$ on Mars). Justified by HiRISE orbital imaging confirming the silent rover's location on the valley slope. |
+| **NEAR Shoemaker** | `35.7° S, 279.5° W body-fixed` | IAU 433 Eros Body-Fixed Cartographic Frame (Positive-West) | JHU-APL NEAR Operations; Cheng et al. (2002) Science; NSSDCA 1996-008A | Surface Touchdown & Final Resting Site (Himeros Depression) | 1 decimal place ($\approx 14.7\text{ m}$ on Eros). Justified by terminal descent MSI framing camera optical tracking and landmark correlation. |
 
 * **DSN Waveform Monitor (Chapter V)**: Explicitly identified with a visible disclosure: *"Illustrative communication visualization; not a reconstruction of a specific mission transmission."*
 * **Orrery Scale (Chapter II)**: Explicitly labeled with visual disclosure: *"Planetary orbital paths and diameters are scaled for educational clarity (NOT TO SCALE)."*

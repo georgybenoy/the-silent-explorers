@@ -67,6 +67,15 @@ In previous development phases, Scene 5 controls in Chapter I had exhibited visu
 
 ### 4. Color Contrast & Readability
 * High-contrast cosmic palette adheres to WCAG AA contrast standards (minimum 4.5:1 for standard text; minimum 3:1 for large text):
-  * White text (`#f8fafc`) on black background (`#05070e`): **19.8:1 ratio** (AAA Pass).
-  * Gold accent text (`#e89a3c`) on black background: **6.2:1 ratio** (AA Pass).
-  * Cyan accent text (`#38bdf8`) on black background: **9.4:1 ratio** (AAA Pass).
+### 5. Touch Target Measurements & Practical Mobile Ergonomics
+* **Primary Interactive Controls**: Buttons such as `← PREV SCENE`, `NEXT SCENE →`, Modal Close `✕`, Chapter Navigation pills, Citations Drawer trigger, and Audio toggle measure $\ge 44 \times 44\text{px}$ (typically $100 \times 44\text{px}$ or $48 \times 48\text{px}$ with padding), satisfying touch target guidelines.
+* **Secondary Navigation Pills**: The scene jump pagination buttons (`01` through `07`) and destination filter chips measure between 25px and 32px in height with 6–8px inter-element spacing. They are designed for quick visual milestone identification and are accompanied by larger `PREV` / `NEXT` step buttons for mobile touch accuracy.
+
+### 6. Accessible Alternatives to 3D Interactions
+* Every 3D interaction in the application provides a direct, accessible 2D equivalent:
+  * **Chapter I**: High-resolution Apollo 17 photography and deep-space telemetry cards.
+  * **Chapter II**: 2D tabular planetary constants dossier with physical distance, orbital period, and gravity metrics.
+  * **Chapter III**: 2D environmental metrics grid (surface gravity, radius, temperature, pressure).
+  * **Chapter IV**: Instant toggle to `NASA PHOTO` archival imagery with official photo credits and verbatim historical logs.
+  * **Chapter VI**: 2D planetary landing theater coordinate matrix with ground-truth landing coordinates.
+  * **Chapter VII**: 2D interplanetary waypoints progression and complete 20-source citations drawer.
