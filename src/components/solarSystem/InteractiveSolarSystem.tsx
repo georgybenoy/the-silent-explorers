@@ -260,7 +260,7 @@ export function InteractiveSolarSystem() {
             <ambientLight intensity={0.15} />
             <group rotation={[0.2, 0, 0]}>
               {WORLDS.map((w) => (
-                <div key={w.id}>
+                <group key={w.id}>
                   {w.orbitRadius > 0 && (
                     <OrbitLine
                       radius={w.orbitRadius}
@@ -273,7 +273,7 @@ export function InteractiveSolarSystem() {
                     onSelect={setSelectedWorld}
                     isPaused={isPaused}
                   />
-                </div>
+                </group>
               ))}
             </group>
           </Canvas>
